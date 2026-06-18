@@ -104,21 +104,21 @@ export default function BannersManager() {
   };
 
   return (
-    <div className="space-y-8 text-slate-800 animate-fade-in font-sans">
+    <div className="space-y-8 text-[#111827] animate-fade-in font-sans">
       
       {/* Page Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 pb-5">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#E2E8F0] pb-5">
         <div>
-          <h1 className="text-xl md:text-2xl font-black uppercase tracking-tight text-gradient-gold">
+          <h1 className="text-xl md:text-2xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#06B6D4]">
             Frontpage Banners
           </h1>
-          <p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider mt-1.5">
+          <p className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider mt-1.5">
             Configure homepage carousel sliders and highlight grid banners on gsmsekhar.com
           </p>
         </div>
         <button 
           onClick={() => setShowAddModal(true)}
-          className="btn-gold px-4.5 py-2.5 flex items-center gap-2 cursor-pointer shadow-gold-md hover:scale-[1.02] active:scale-[0.98] transition-all"
+          className="btn-primary px-4.5 py-2.5 flex items-center gap-2 cursor-pointer shadow-blue-md hover:scale-[1.02] active:scale-[0.98] transition-all"
         >
           <Plus size={16} />
           <span>Add Banner</span>
@@ -129,16 +129,16 @@ export default function BannersManager() {
         
         {/* Banner List Section */}
         <div className="space-y-6">
-          <div className="glass-card p-6 rounded-2xl shadow-lg border border-slate-200 space-y-4">
-            <h3 className="text-xs font-black text-slate-800 uppercase tracking-wider border-b border-slate-100 pb-3 flex items-center gap-2">
-              <Layers size={16} className="text-[#d4af37]" />
+          <div className="glass-card p-6 rounded-2xl shadow-lg border border-[#E2E8F0] space-y-4">
+            <h3 className="text-xs font-black text-[#111827] uppercase tracking-wider border-b border-[#E2E8F0] pb-3 flex items-center gap-2">
+              <Layers size={16} className="text-[#2563EB]" />
               Active Banners Queue
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {banners.map(b => (
-                <div key={b.id} className="p-4 bg-slate-50 border border-slate-200 rounded-xl flex gap-4 items-center">
-                  <div className="w-16 h-16 rounded bg-slate-100 flex items-center justify-center overflow-hidden shrink-0 border border-slate-200 shadow-inner">
+                <div key={b.id} className="p-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl flex gap-4 items-center">
+                  <div className="w-16 h-16 rounded bg-[#F8FAFC] flex items-center justify-center overflow-hidden shrink-0 border border-[#E2E8F0] shadow-inner">
                     {b.image ? (
                       <img 
                         src={b.image} 
@@ -153,7 +153,7 @@ export default function BannersManager() {
                       />
                     ) : null}
                     <div 
-                      className="w-full h-full bg-slate-200 flex flex-col justify-center text-center p-0.5 leading-none select-none text-[6px] text-slate-600 font-black truncate uppercase"
+                      className="w-full h-full bg-[#F8FAFC] flex flex-col justify-center text-center p-0.5 leading-none select-none text-[6px] text-[#64748B] font-black truncate uppercase"
                       style={{ display: b.image ? 'none' : 'flex' }}
                     >
                       {b.image ? (b.image.startsWith('data:') ? 'Uploaded Image' : b.image.split('/').pop()) : 'No Img'}
@@ -161,11 +161,11 @@ export default function BannersManager() {
                   </div>
                   
                   <div className="flex-1 min-w-0">
-                    <span className="text-[8px] bg-amber-500/10 border border-[#d4af37]/20 text-[#d4af37] px-2 py-0.5 rounded uppercase font-black leading-none inline-block mb-1.5 shadow-sm">
+                    <span className="text-[8px] bg-amber-500/10 border border-[#2563EB]/20 text-[#2563EB] px-2 py-0.5 rounded uppercase font-black leading-none inline-block mb-1.5 shadow-sm">
                       {b.type}
                     </span>
-                    <h4 className="text-[12px] font-black text-slate-800 truncate">{b.title}</h4>
-                    <span className="block text-[9px] text-slate-500 mt-1 truncate">
+                    <h4 className="text-[12px] font-black text-[#111827] truncate">{b.title}</h4>
+                    <span className="block text-[9px] text-[#64748B] mt-1 truncate">
                       {b.image.startsWith('data:') ? 'Local System Data Base64' : b.image}
                     </span>
                   </div>
@@ -173,7 +173,7 @@ export default function BannersManager() {
                   <button
                     onClick={() => handleDeleteBanner(b.id)}
                     title="Remove Banner"
-                    className="p-2 bg-red-50 hover:bg-red-500 border border-red-200 hover:border-transparent text-red-500 hover:text-white rounded-lg cursor-pointer transition-all shrink-0"
+                    className="p-2 bg-red-50 hover:bg-red-500 border border-red-200 hover:border-transparent text-red-500 hover:text-[#111827] rounded-lg cursor-pointer transition-all shrink-0"
                   >
                     <Trash2 size={14} />
                   </button>
@@ -182,49 +182,49 @@ export default function BannersManager() {
             </div>
 
             {banners.length === 0 && (
-              <div className="text-center py-12 text-slate-400 font-bold uppercase tracking-wider text-[10px]">
+              <div className="text-center py-12 text-[#64748B] font-bold uppercase tracking-wider text-[10px]">
                 No banners active on home page
               </div>
             )}
           </div>
 
           {/* Interactive Live Mock Preview Section */}
-          <div className="glass-card p-6 rounded-2xl shadow-lg border border-slate-200 space-y-4">
-            <h3 className="text-xs font-black text-slate-800 uppercase tracking-wider border-b border-slate-100 pb-3 flex items-center gap-2">
-              <Globe size={16} className="text-[#d4af37]" />
+          <div className="glass-card p-6 rounded-2xl shadow-lg border border-[#E2E8F0] space-y-4">
+            <h3 className="text-xs font-black text-[#111827] uppercase tracking-wider border-b border-[#E2E8F0] pb-3 flex items-center gap-2">
+              <Globe size={16} className="text-[#2563EB]" />
               Homepage Banner Layout Preview (Live Simulation)
             </h3>
 
-            <div className="border border-slate-200 rounded-xl bg-slate-50 p-4 space-y-4 shadow-inner">
-              <span className="text-[9px] uppercase tracking-wider text-slate-400 font-black block leading-none">
+            <div className="border border-[#E2E8F0] rounded-xl bg-[#F8FAFC] p-4 space-y-4 shadow-inner">
+              <span className="text-[9px] uppercase tracking-wider text-[#64748B] font-black block leading-none">
                 SIMULATED WEB BANNER SLOT
               </span>
 
               {/* 1. Carousel Slider Simulation */}
-              <div className="relative w-full h-48 rounded-xl bg-slate-900 overflow-hidden flex items-center justify-center border border-slate-200 text-white">
+              <div className="relative w-full h-48 rounded-xl bg-[#F8FAFC] overflow-hidden flex items-center justify-center border border-[#E2E8F0] text-[#111827]">
                 {carouselBanners.length > 0 ? (
                   <>
                     <div 
                       className="absolute inset-0 bg-cover bg-center flex flex-col justify-end p-6 bg-gradient-to-t from-slate-950 via-slate-900/50 to-transparent"
                       style={{ backgroundImage: `url(${carouselBanners[previewIndex]?.image})` }}
                     >
-                      <span className="text-[8px] bg-[#d4af37] text-slate-950 font-black px-2 py-0.5 rounded uppercase w-max mb-1.5 shadow">
+                      <span className="text-[8px] bg-[#2563EB] text-[#111827] font-black px-2 py-0.5 rounded uppercase w-max mb-1.5 shadow">
                         CAROUSEL BANNER
                       </span>
                       <h4 className="text-sm md:text-base font-extrabold tracking-tight drop-shadow-md">{carouselBanners[previewIndex]?.title}</h4>
-                      <p className="text-[9px] text-slate-300 mt-1 font-mono truncate select-all">{carouselBanners[previewIndex]?.image}</p>
+                      <p className="text-[9px] text-[#111827] mt-1 font-mono truncate select-all">{carouselBanners[previewIndex]?.image}</p>
                     </div>
 
                     {/* Navigation Buttons */}
                     <button 
                       onClick={handlePrevSlide}
-                      className="absolute left-3 p-1.5 bg-slate-950/60 hover:bg-[#d4af37] text-white hover:text-slate-950 rounded-full border border-slate-800/80 transition-all cursor-pointer"
+                      className="absolute left-3 p-1.5 bg-[#F8FAFC]/60 hover:bg-[#2563EB] text-[#111827] hover:text-[#111827] rounded-full border border-[#E2E8F0]/80 transition-all cursor-pointer"
                     >
                       <ChevronLeft size={16} />
                     </button>
                     <button 
                       onClick={handleNextSlide}
-                      className="absolute right-3 p-1.5 bg-slate-950/60 hover:bg-[#d4af37] text-white hover:text-slate-950 rounded-full border border-slate-800/80 transition-all cursor-pointer"
+                      className="absolute right-3 p-1.5 bg-[#F8FAFC]/60 hover:bg-[#2563EB] text-[#111827] hover:text-[#111827] rounded-full border border-[#E2E8F0]/80 transition-all cursor-pointer"
                     >
                       <ChevronRight size={16} />
                     </button>
@@ -234,13 +234,13 @@ export default function BannersManager() {
                       {carouselBanners.map((_, i) => (
                         <div 
                           key={i} 
-                          className={`w-1.5 h-1.5 rounded-full transition-all ${i === previewIndex ? 'bg-[#d4af37] w-3.5' : 'bg-white/40'}`}
+                          className={`w-1.5 h-1.5 rounded-full transition-all ${i === previewIndex ? 'bg-[#2563EB] w-3.5' : 'bg-white/40'}`}
                         />
                       ))}
                     </div>
                   </>
                 ) : (
-                  <div className="text-[10px] text-slate-500 font-bold uppercase flex flex-col items-center gap-1.5">
+                  <div className="text-[10px] text-[#64748B] font-bold uppercase flex flex-col items-center gap-1.5">
                     <ImageIcon size={28} className="text-slate-650" />
                     <span>No active top carousel slider banners</span>
                   </div>
@@ -249,7 +249,7 @@ export default function BannersManager() {
 
               {/* 2. Highlights Cards Grid Simulation */}
               <div>
-                <span className="text-[9px] uppercase tracking-wider text-slate-400 font-black block leading-none mb-3">
+                <span className="text-[9px] uppercase tracking-wider text-[#64748B] font-black block leading-none mb-3">
                   Highlights Section Grid
                 </span>
                 
@@ -258,16 +258,16 @@ export default function BannersManager() {
                     gridBanners.map(gb => (
                       <div 
                         key={gb.id} 
-                        className="relative h-24 rounded-lg bg-slate-900 border border-slate-200 overflow-hidden flex flex-col justify-end p-3.5 text-white bg-cover bg-center"
+                        className="relative h-24 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] overflow-hidden flex flex-col justify-end p-3.5 text-[#111827] bg-cover bg-center"
                         style={{ backgroundImage: `url(${gb.image})` }}
                       >
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent flex flex-col justify-end">
-                          <span className="text-[7px] bg-cyan-500 text-slate-950 font-black px-1.5 py-0.5 rounded uppercase w-max mb-1 shadow ml-3">
+                          <span className="text-[7px] bg-cyan-500 text-[#111827] font-black px-1.5 py-0.5 rounded uppercase w-max mb-1 shadow ml-3">
                             GRID CARD
                           </span>
                           <h5 className="text-[11px] font-bold tracking-tight drop-shadow ml-3">{gb.title}</h5>
                           {gb.link && (
-                            <a href={gb.link} target="_blank" rel="noreferrer" className="text-[8px] text-slate-300 font-semibold flex items-center gap-0.5 hover:text-[#d4af37] ml-3 mt-1">
+                            <a href={gb.link} target="_blank" rel="noreferrer" className="text-[8px] text-[#111827] font-semibold flex items-center gap-0.5 hover:text-[#2563EB] ml-3 mt-1">
                               Visit Action <ExternalLink size={8} />
                             </a>
                           )}
@@ -275,7 +275,7 @@ export default function BannersManager() {
                       </div>
                     ))
                   ) : (
-                    <div className="col-span-2 py-6 text-center border border-dashed border-slate-200 rounded-lg text-[10px] text-slate-400 font-bold uppercase">
+                    <div className="col-span-2 py-6 text-center border border-dashed border-[#E2E8F0] rounded-lg text-[10px] text-[#64748B] font-bold uppercase">
                       No active highlight card grid banners configured
                     </div>
                   )}
@@ -292,15 +292,15 @@ export default function BannersManager() {
       {/* Popup Form Modal */}
       {showAddModal && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="w-full max-w-md bg-white border border-slate-200 rounded-2xl shadow-2xl p-6 md:p-8 animate-scale-up space-y-5 text-slate-800">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <h2 className="text-xs font-black text-slate-800 uppercase tracking-wider flex items-center gap-2">
-                <Plus size={16} className="text-[#d4af37]" />
+          <div className="w-full max-w-md bg-white border border-[#E2E8F0] rounded-2xl shadow-2xl p-6 md:p-8 animate-scale-up space-y-5 text-[#111827]">
+            <div className="flex items-center justify-between border-b border-[#E2E8F0] pb-3">
+              <h2 className="text-xs font-black text-[#111827] uppercase tracking-wider flex items-center gap-2">
+                <Plus size={16} className="text-[#2563EB]" />
                 Add Banner Asset
               </h2>
               <button 
                 onClick={() => setShowAddModal(false)}
-                className="p-1 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-slate-700 transition-all cursor-pointer"
+                className="p-1 hover:bg-[#F8FAFC] rounded-lg text-[#64748B] hover:text-[#111827] transition-all cursor-pointer"
               >
                 <X size={18} />
               </button>
@@ -308,7 +308,7 @@ export default function BannersManager() {
 
             <form onSubmit={handleAddBanner} className="space-y-4 text-xs">
               <div>
-                <label className="text-[10px] text-slate-500 font-black uppercase tracking-wider block mb-1.5">
+                <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
                   Banner Title
                 </label>
                 <input
@@ -322,7 +322,7 @@ export default function BannersManager() {
               </div>
 
               <div>
-                <label className="text-[10px] text-slate-500 font-black uppercase tracking-wider block mb-1.5">
+                <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
                   Banner Image / Local System Path
                 </label>
                 <div className="flex gap-2">
@@ -332,7 +332,7 @@ export default function BannersManager() {
                     readOnly
                     placeholder="Click image button to choose file..."
                     value={newBannerImage.startsWith('data:') ? 'Local Selected Image file (Loaded)' : newBannerImage}
-                    className="input-dark flex-1 cursor-default bg-slate-50"
+                    className="input-dark flex-1 cursor-default bg-[#F8FAFC]"
                   />
                   <input 
                     type="file" 
@@ -345,7 +345,7 @@ export default function BannersManager() {
                     type="button"
                     onClick={triggerFileSelect}
                     title="Choose local image"
-                    className="px-3 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 rounded-lg flex items-center justify-center cursor-pointer transition-all hover:scale-[1.02]"
+                    className="px-3 py-2.5 bg-[#F8FAFC] hover:bg-[#F8FAFC] text-[#111827] border border-[#E2E8F0] rounded-lg flex items-center justify-center cursor-pointer transition-all hover:scale-[1.02]"
                   >
                     <Upload size={14} />
                   </button>
@@ -356,13 +356,13 @@ export default function BannersManager() {
                 <button
                   type="button"
                   onClick={() => setShowAddModal(false)}
-                  className="w-1/2 py-3 bg-slate-100 hover:bg-slate-200 text-slate-750 font-bold rounded-xl text-center cursor-pointer transition-all border border-slate-200"
+                  className="w-1/2 py-3 bg-[#F8FAFC] hover:bg-[#F8FAFC] text-slate-750 font-bold rounded-xl text-center cursor-pointer transition-all border border-[#E2E8F0]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="w-1/2 py-3 bg-[#d4af37] hover:bg-[#c5a059] text-slate-950 font-black rounded-xl text-center cursor-pointer transition-all border border-transparent shadow-gold-sm"
+                  className="w-1/2 py-3 bg-[#2563EB] hover:bg-blue-700 text-[#111827] font-black rounded-xl text-center cursor-pointer transition-all border border-transparent shadow-blue-sm"
                 >
                   Save Banner
                 </button>

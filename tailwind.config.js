@@ -8,35 +8,40 @@ export default {
     extend: {
       // ─── Brand color tokens ───────────────────────────────────────────────
       colors: {
-        yellow: {
-          DEFAULT: '#eab308',
-          light:   '#fef08a',
-          deep:    '#ca8a04',
-          hover:   '#ca8a04',
-          muted:   '#854d0e',
+        primary: {
+          DEFAULT: '#2563EB',
+          hover: '#1D4ED8',
         },
-        gold: {
-          DEFAULT: '#eab308',
-          light:   '#fef08a',
-          deep:    '#ca8a04',
-          hover:   '#ca8a04',
-          muted:   '#854d0e',
+        accent: {
+          DEFAULT: '#06B6D4',
+          hover: '#0891B2',
+        },
+        navy: {
+          DEFAULT: '#0F172A',
         },
         slate: {
-          50:  '#000000',
-          100: '#000000',
-          200: '#0f172a',
-          300: '#0f172a',
-          350: '#0f172a',
-          400: '#1e293b',
-          500: '#1e293b',
-          600: '#0f172a',
-          700: '#e2e8f0',
-          800: '#e2e8f0',
-          850: '#e2e8f0',
-          900: '#f8fafc',
-          950: '#ffffff',
+          ...require('tailwindcss/colors').slate,
+          header: '#1E293B',
+          search: '#334155',
+          border: '#475569',
         },
+        status: {
+          success: '#10B981',
+          warning: '#F59E0B',
+          danger: '#EF4444',
+          info: '#3B82F6',
+        },
+        bg: {
+          main: '#F8FAFC',
+          card: '#FFFFFF',
+        },
+        text: {
+          dark: '#111827',
+          light: '#64748B',
+        },
+        border: {
+          DEFAULT: '#E2E8F0',
+        }
       },
 
       // ─── Font family ──────────────────────────────────────────────────────
@@ -59,7 +64,7 @@ export default {
           '0%': { opacity: '0', transform: 'translateX(-16px)' },
           '100%': { opacity: '1', transform: 'translateX(0)' },
         },
-        'pulse-gold': {
+        'pulse-primary': {
           '0%, 100%': { opacity: '1', transform: 'scale(1)' },
           '50%': { opacity: '0.8', transform: 'scale(1.02)' },
         },
@@ -78,16 +83,16 @@ export default {
         'fade-in': 'fade-in 0.35s ease both',
         'scale-up': 'scale-up 0.28s cubic-bezier(0.22,1,0.36,1) both',
         'slide-in': 'slide-in 0.3s ease both',
-        'pulse-gold': 'pulse-gold 3s cubic-bezier(0.4,0,0.6,1) infinite',
+        'pulse-primary': 'pulse-primary 3s cubic-bezier(0.4,0,0.6,1) infinite',
         shimmer: 'shimmer 2.5s linear infinite',
         'spin-slow': 'spin-slow 8s linear infinite',
       },
 
       // ─── Box shadows ──────────────────────────────────────────────────────
       boxShadow: {
-        'gold-sm': '0 2px 12px -2px rgba(212,175,55,0.25)',
-        'gold-md': '0 4px 20px -2px rgba(212,175,55,0.30)',
-        'gold-lg': '0 8px 32px -4px rgba(212,175,55,0.35)',
+        'primary-sm': '0 2px 12px -2px rgba(37,99,235,0.25)',
+        'primary-md': '0 4px 20px -2px rgba(37,99,235,0.30)',
+        'primary-lg': '0 8px 32px -4px rgba(37,99,235,0.35)',
         glass: '0 8px 32px rgba(0,0,0,0.48)',
       },
 
@@ -104,9 +109,9 @@ export default {
     'bg-emerald-500/10', 'text-emerald-400', 'border-emerald-500/20',
     'bg-amber-500/10', 'text-amber-400', 'border-amber-500/20',
     'bg-red-500/10', 'text-red-400', 'border-red-500/20',
-    // Gold dynamic classes
-    'text-[#d4af37]', 'bg-[#d4af37]', 'border-[#d4af37]',
-    'hover:bg-[#d4af37]', 'hover:border-[#d4af37]',
+    // Dynamic classes
+    'text-primary', 'bg-primary', 'border-primary',
+    'hover:bg-primary', 'hover:border-primary',
   ],
 
   plugins: [],

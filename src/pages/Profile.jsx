@@ -103,22 +103,22 @@ export default function Profile() {
   if (profileLoading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <span className="w-6 h-6 border-2 border-[#d4af37] border-t-transparent rounded-full animate-spin mr-3"></span>
-        <span className="text-xs font-bold uppercase tracking-widest text-slate-400">Loading Profile...</span>
+        <span className="w-6 h-6 border-2 border-[#2563EB] border-t-transparent rounded-full animate-spin mr-3"></span>
+        <span className="text-xs font-bold uppercase tracking-widest text-[#64748B]">Loading Profile...</span>
       </div>
     );
   }
 
   return (
-    <div className="space-y-8 text-slate-100 animate-fade-in">
+    <div className="space-y-8 text-[#111827] animate-fade-in">
 
       {/* Page Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-900 pb-5">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#E2E8F0] pb-5">
         <div>
-          <h1 className="text-xl md:text-2xl font-black uppercase tracking-tight text-gradient-gold">
+          <h1 className="text-xl md:text-2xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#06B6D4]">
             Admin Profile
           </h1>
-          <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider mt-1.5">
+          <p className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider mt-1.5">
             Manage administrator credentials and account details
           </p>
         </div>
@@ -129,20 +129,20 @@ export default function Profile() {
       </div>
 
       {/* Hero Profile Card */}
-      <div className="relative glass-card rounded-2xl border border-slate-800 shadow-md overflow-hidden">
+      <div className="relative glass-card rounded-2xl border border-[#E2E8F0] shadow-md overflow-hidden">
         {/* Gold header strip */}
-        <div className="h-20 bg-gradient-to-r from-[#d4af37]/20 via-[#d4af37]/5 to-transparent"></div>
+        <div className="h-20 bg-gradient-to-r from-[primary]/20 via-[primary]/5 to-transparent"></div>
 
         <div className="px-8 pb-8">
           {/* Avatar */}
           <div className="flex flex-col md:flex-row md:items-end gap-6 -mt-10 mb-6">
-            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#d4af37] to-amber-500 flex items-center justify-center text-slate-950 font-black text-2xl shadow-lg border-4 border-[#070b13] shrink-0">
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[primary] to-amber-500 flex items-center justify-center text-[#111827] font-black text-2xl shadow-lg border-4 border-[#070b13] shrink-0">
               {initials}
             </div>
             <div className="pb-1">
-              <h2 className="text-xl font-black text-white tracking-tight leading-none">{name || 'Root Admin'}</h2>
+              <h2 className="text-xl font-black text-[#111827] tracking-tight leading-none">{name || 'Root Admin'}</h2>
               <div className="flex flex-wrap items-center gap-3 mt-2.5">
-                <span className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-wider text-[#d4af37] bg-amber-500/10 border border-[#d4af37]/35 px-2.5 py-1 rounded-full">
+                <span className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-wider text-[#2563EB] bg-amber-500/10 border border-[#2563EB]/35 px-2.5 py-1 rounded-full">
                   <Crown size={10} />
                   {role || 'Super Administrator'}
                 </span>
@@ -161,12 +161,12 @@ export default function Profile() {
               { icon: Phone, label: 'Phone', value: phone || '—' },
               { icon: ShieldCheck, label: 'Access Level', value: 'Root • Full Access' },
             ].map(({ icon: Icon, label, value }) => (
-              <div key={label} className="bg-slate-900/60 border border-slate-850 rounded-xl p-4">
+              <div key={label} className="bg-white border border-[#E2E8F0] rounded-xl p-4">
                 <div className="flex items-center gap-2 mb-1.5">
-                  <Icon size={12} className="text-[#d4af37]" />
-                  <span className="text-[9px] uppercase font-black tracking-wider text-slate-500">{label}</span>
+                  <Icon size={12} className="text-[#2563EB]" />
+                  <span className="text-[9px] uppercase font-black tracking-wider text-[#64748B]">{label}</span>
                 </div>
-                <span className="text-xs font-bold text-slate-200 truncate block">{value}</span>
+                <span className="text-xs font-bold text-[#111827] truncate block">{value}</span>
               </div>
             ))}
           </div>
@@ -174,7 +174,7 @@ export default function Profile() {
       </div>
 
       {/* Tab Selector */}
-      <div className="flex gap-2 p-1.5 bg-slate-900 border border-slate-800 rounded-xl w-fit">
+      <div className="flex gap-2 p-1.5 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl w-fit">
         {[
           { id: 'info', label: 'Profile Information', icon: User },
           { id: 'security', label: 'Security Credentials', icon: KeyRound },
@@ -184,8 +184,8 @@ export default function Profile() {
             onClick={() => setActiveTab(id)}
             className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer border ${
               activeTab === id
-                ? 'bg-slate-800 text-[#d4af37] border-[#d4af37]/35 shadow-gold-sm font-extrabold'
-                : 'text-slate-400 border-transparent hover:text-slate-200'
+                ? 'bg-[#F8FAFC] text-[#2563EB] border-[#2563EB]/35 shadow-blue-sm font-extrabold'
+                : 'text-[#64748B] border-transparent hover:text-[#111827]'
             }`}
           >
             <Icon size={13} />
@@ -198,62 +198,62 @@ export default function Profile() {
       {activeTab === 'info' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Form */}
-          <div className="lg:col-span-2 glass-card p-6 rounded-2xl shadow-lg border border-slate-800 space-y-6">
-            <h2 className="text-xs font-black text-slate-200 uppercase tracking-wider border-b border-slate-900 pb-3 flex items-center gap-2">
-              <User size={16} className="text-[#d4af37]" />
+          <div className="lg:col-span-2 glass-card p-6 rounded-2xl shadow-lg border border-[#E2E8F0] space-y-6">
+            <h2 className="text-xs font-black text-[#111827] uppercase tracking-wider border-b border-[#E2E8F0] pb-3 flex items-center gap-2">
+              <User size={16} className="text-[#2563EB]" />
               Profile Details
             </h2>
 
             <form onSubmit={handleSaveProfile} className="space-y-5 text-xs">
               {/* Display Name */}
               <div>
-                <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-2">
+                <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-2">
                   Display Name
                 </label>
                 <div className="relative">
-                  <User size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" />
+                  <User size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#64748B]" />
                   <input
                     type="text"
                     required
                     value={name}
                     onChange={e => setName(e.target.value)}
                     placeholder="e.g. Root Admin"
-                    className="w-full pl-9 pr-4 bg-slate-900 border border-slate-800 focus:border-[#d4af37]/70 text-xs font-bold rounded-lg py-2.5 text-slate-200 focus:outline-none transition-all duration-205"
+                    className="w-full pl-9 pr-4 bg-[#F8FAFC] border border-[#E2E8F0] focus:border-[#2563EB]/70 text-xs font-bold rounded-lg py-2.5 text-[#111827] focus:outline-none transition-all duration-205"
                   />
                 </div>
               </div>
 
               {/* Email */}
               <div>
-                <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-2">
+                <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-2">
                   Email Address
                 </label>
                 <div className="relative">
-                  <Mail size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" />
+                  <Mail size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#64748B]" />
                   <input
                     type="email"
                     required
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                     placeholder="e.g. admin@gsmgiri.com"
-                    className="w-full pl-9 pr-4 bg-slate-900 border border-slate-800 focus:border-[#d4af37]/70 text-xs font-bold rounded-lg py-2.5 text-slate-200 focus:outline-none transition-all duration-205"
+                    className="w-full pl-9 pr-4 bg-[#F8FAFC] border border-[#E2E8F0] focus:border-[#2563EB]/70 text-xs font-bold rounded-lg py-2.5 text-[#111827] focus:outline-none transition-all duration-205"
                   />
                 </div>
               </div>
 
               {/* Phone */}
               <div>
-                <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-2">
+                <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-2">
                   Contact Phone / WhatsApp
                 </label>
                 <div className="relative">
-                  <Phone size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" />
+                  <Phone size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#64748B]" />
                   <input
                     type="text"
                     value={phone}
                     onChange={e => setPhone(e.target.value)}
                     placeholder="e.g. +91 824-700-5409"
-                    className="w-full pl-9 pr-4 bg-slate-900 border border-slate-800 focus:border-[#d4af37]/70 text-xs font-bold rounded-lg py-2.5 text-slate-200 focus:outline-none transition-all duration-205"
+                    className="w-full pl-9 pr-4 bg-[#F8FAFC] border border-[#E2E8F0] focus:border-[#2563EB]/70 text-xs font-bold rounded-lg py-2.5 text-[#111827] focus:outline-none transition-all duration-205"
                   />
                 </div>
               </div>
@@ -272,11 +272,11 @@ export default function Profile() {
                 </div>
               )}
 
-              <div className="pt-4 border-t border-slate-900 flex justify-end">
+              <div className="pt-4 border-t border-[#E2E8F0] flex justify-end">
                 <button
                   type="submit"
                   disabled={profileSaving}
-                  className="py-3 px-6 bg-[#d4af37] hover:bg-[#c5a059] disabled:opacity-60 text-slate-950 font-black rounded-xl text-center cursor-pointer transition-all border border-transparent flex items-center justify-center gap-1.5 shadow-gold-sm"
+                  className="py-3 px-6 bg-[#2563EB] hover:bg-blue-700 disabled:opacity-60 text-[#111827] font-black rounded-xl text-center cursor-pointer transition-all border border-transparent flex items-center justify-center gap-1.5 shadow-blue-sm"
                 >
                   <Save size={14} />
                   <span>{profileSaving ? 'Saving…' : 'Save Profile'}</span>
@@ -287,9 +287,9 @@ export default function Profile() {
 
           {/* Info Sidebar */}
           <div className="space-y-5">
-            <div className="glass-card p-6 rounded-2xl shadow-lg border border-slate-800 space-y-4">
-              <h2 className="text-xs font-black text-slate-200 uppercase tracking-wider border-b border-slate-900 pb-3 flex items-center gap-2">
-                <ShieldCheck size={16} className="text-[#d4af37]" />
+            <div className="glass-card p-6 rounded-2xl shadow-lg border border-[#E2E8F0] space-y-4">
+              <h2 className="text-xs font-black text-[#111827] uppercase tracking-wider border-b border-[#E2E8F0] pb-3 flex items-center gap-2">
+                <ShieldCheck size={16} className="text-[#2563EB]" />
                 Access Control
               </h2>
               <div className="space-y-3">
@@ -300,20 +300,20 @@ export default function Profile() {
                   { label: 'Permissions', value: 'Full Root Access' },
                 ].map(({ label, value }) => (
                   <div key={label} className="flex flex-col gap-0.5">
-                    <span className="text-[9px] uppercase font-black tracking-wider text-slate-500">{label}</span>
-                    <span className="text-xs font-bold text-slate-300">{value}</span>
+                    <span className="text-[9px] uppercase font-black tracking-wider text-[#64748B]">{label}</span>
+                    <span className="text-xs font-bold text-[#111827]">{value}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-[#d4af37]/5 border border-[#d4af37]/20 rounded-2xl p-5">
+            <div className="bg-[#2563EB]/5 border border-[#2563EB]/20 rounded-2xl p-5">
               <div className="flex items-center gap-2 mb-2">
-                <Calendar size={13} className="text-[#d4af37]" />
-                <span className="text-[10px] uppercase font-black tracking-wider text-[#d4af37]">Session Info</span>
+                <Calendar size={13} className="text-[#2563EB]" />
+                <span className="text-[10px] uppercase font-black tracking-wider text-[#2563EB]">Session Info</span>
               </div>
-              <p className="text-[10px] text-slate-400 font-semibold leading-relaxed">
-                Your JWT session token is valid for <strong className="text-[#d4af37]">7 days</strong> from last login. All profile changes take effect immediately.
+              <p className="text-[10px] text-[#64748B] font-semibold leading-relaxed">
+                Your JWT session token is valid for <strong className="text-[#2563EB]">7 days</strong> from last login. All profile changes take effect immediately.
               </p>
             </div>
           </div>
@@ -323,9 +323,9 @@ export default function Profile() {
       {activeTab === 'security' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Password Form */}
-          <div className="lg:col-span-2 glass-card p-6 rounded-2xl shadow-lg border border-slate-800 space-y-6">
-            <h2 className="text-xs font-black text-slate-200 uppercase tracking-wider border-b border-slate-900 pb-3 flex items-center gap-2">
-              <Lock size={16} className="text-[#d4af37]" />
+          <div className="lg:col-span-2 glass-card p-6 rounded-2xl shadow-lg border border-[#E2E8F0] space-y-6">
+            <h2 className="text-xs font-black text-[#111827] uppercase tracking-wider border-b border-[#E2E8F0] pb-3 flex items-center gap-2">
+              <Lock size={16} className="text-[#2563EB]" />
               Change Administrator Password
             </h2>
 
@@ -337,23 +337,23 @@ export default function Profile() {
                 { label: 'Confirm New Password', value: confirmPw, setter: setConfirmPw, show: showConfirmPw, toggleShow: () => setShowConfirmPw(v => !v), placeholder: 'Re-enter new password' },
               ].map(({ label, value, setter, show, toggleShow, placeholder }) => (
                 <div key={label}>
-                  <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-2">
+                  <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-2">
                     {label}
                   </label>
                   <div className="relative">
-                    <Lock size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" />
+                    <Lock size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#64748B]" />
                     <input
                       type={show ? 'text' : 'password'}
                       required
                       value={value}
                       onChange={e => setter(e.target.value)}
                       placeholder={placeholder}
-                      className="w-full pl-9 pr-11 bg-slate-900 border border-slate-800 focus:border-[#d4af37]/70 text-xs font-bold rounded-lg py-2.5 text-slate-200 focus:outline-none transition-all duration-205"
+                      className="w-full pl-9 pr-11 bg-[#F8FAFC] border border-[#E2E8F0] focus:border-[#2563EB]/70 text-xs font-bold rounded-lg py-2.5 text-[#111827] focus:outline-none transition-all duration-205"
                     />
                     <button
                       type="button"
                       onClick={toggleShow}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-[#d4af37] transition-colors cursor-pointer"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-[#64748B] hover:text-[#2563EB] transition-colors cursor-pointer"
                     >
                       {show ? <EyeOff size={14} /> : <Eye size={14} />}
                     </button>
@@ -363,14 +363,14 @@ export default function Profile() {
 
               {/* Password strength hint */}
               {newPw && (
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-3.5 space-y-1.5">
+                <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-3.5 space-y-1.5">
                   {[
                     { label: 'At least 6 characters', met: newPw.length >= 6 },
                     { label: 'Contains a number', met: /\d/.test(newPw) },
                     { label: 'Contains uppercase letter', met: /[A-Z]/.test(newPw) },
                   ].map(({ label, met }) => (
-                    <div key={label} className={`flex items-center gap-2 text-[10px] font-bold ${met ? 'text-emerald-400' : 'text-slate-500'}`}>
-                      <CheckCircle size={11} className={met ? 'text-emerald-400' : 'text-slate-700'} />
+                    <div key={label} className={`flex items-center gap-2 text-[10px] font-bold ${met ? 'text-emerald-400' : 'text-[#64748B]'}`}>
+                      <CheckCircle size={11} className={met ? 'text-emerald-400' : 'text-[#111827]'} />
                       {label}
                     </div>
                   ))}
@@ -391,11 +391,11 @@ export default function Profile() {
                 </div>
               )}
 
-              <div className="pt-4 border-t border-slate-900 flex justify-end">
+              <div className="pt-4 border-t border-[#E2E8F0] flex justify-end">
                 <button
                   type="submit"
                   disabled={pwSaving}
-                  className="py-3 px-6 bg-[#d4af37] hover:bg-[#c5a059] disabled:opacity-60 text-slate-950 font-black rounded-xl text-center cursor-pointer transition-all border border-transparent flex items-center justify-center gap-1.5 shadow-gold-sm"
+                  className="py-3 px-6 bg-[#2563EB] hover:bg-blue-700 disabled:opacity-60 text-[#111827] font-black rounded-xl text-center cursor-pointer transition-all border border-transparent flex items-center justify-center gap-1.5 shadow-blue-sm"
                 >
                   <ShieldCheck size={14} />
                   <span>{pwSaving ? 'Updating…' : 'Update Password'}</span>
@@ -406,9 +406,9 @@ export default function Profile() {
 
           {/* Security tips sidebar */}
           <div className="space-y-5">
-            <div className="glass-card p-6 rounded-2xl shadow-lg border border-slate-800 space-y-4">
-              <h2 className="text-xs font-black text-slate-200 uppercase tracking-wider border-b border-slate-900 pb-3 flex items-center gap-2">
-                <ShieldCheck size={16} className="text-[#d4af37]" />
+            <div className="glass-card p-6 rounded-2xl shadow-lg border border-[#E2E8F0] space-y-4">
+              <h2 className="text-xs font-black text-[#111827] uppercase tracking-wider border-b border-[#E2E8F0] pb-3 flex items-center gap-2">
+                <ShieldCheck size={16} className="text-[#2563EB]" />
                 Security Tips
               </h2>
               <ul className="space-y-3">
@@ -419,8 +419,8 @@ export default function Profile() {
                   'Change your password periodically.',
                   'Log out after each session on shared devices.',
                 ].map((tip, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-[10px] text-slate-400 font-semibold leading-relaxed">
-                    <span className="w-4 h-4 shrink-0 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 flex items-center justify-center text-[8px] font-black text-[#d4af37]">{i + 1}</span>
+                  <li key={i} className="flex items-start gap-2.5 text-[10px] text-[#64748B] font-semibold leading-relaxed">
+                    <span className="w-4 h-4 shrink-0 rounded-full bg-[#2563EB]/10 border border-[#2563EB]/20 flex items-center justify-center text-[8px] font-black text-[#2563EB]">{i + 1}</span>
                     {tip}
                   </li>
                 ))}

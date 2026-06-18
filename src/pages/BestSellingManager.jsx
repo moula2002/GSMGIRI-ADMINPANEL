@@ -60,7 +60,7 @@ export default function BestSellingManager({ services, setServices }) {
         <img 
           src={image} 
           alt="Thumbnail" 
-          className="w-10 h-10 rounded-lg object-cover shrink-0 border border-slate-850 shadow-sm transition-transform group-hover:scale-105" 
+          className="w-10 h-10 rounded-lg object-cover shrink-0 border border-[#E2E8F0] shadow-sm transition-transform group-hover:scale-105" 
         />
       );
     }
@@ -89,15 +89,15 @@ export default function BestSellingManager({ services, setServices }) {
     }
     if (thumb === 'nexapro') {
       return (
-        <div className={`${defaultClasses} bg-slate-900 border-slate-800 text-[#d4af37] font-bold`}>
-          <span>NEXA</span><span className="text-[8px] font-black text-slate-300 mt-0.5">PRO</span>
+        <div className={`${defaultClasses} bg-[#F8FAFC] border-[#E2E8F0] text-[#2563EB] font-bold`}>
+          <span>NEXA</span><span className="text-[8px] font-black text-[#111827] mt-0.5">PRO</span>
         </div>
       );
     }
     if (thumb === 'gsrealme') {
       return (
         <div className={`${defaultClasses} bg-yellow-950/20 border-yellow-500/35 text-yellow-400 font-bold`}>
-          <span>GS</span><span className="text-[7px] text-slate-300 mt-0.5">REALME</span>
+          <span>GS</span><span className="text-[7px] text-[#111827] mt-0.5">REALME</span>
         </div>
       );
     }
@@ -139,13 +139,13 @@ export default function BestSellingManager({ services, setServices }) {
     if (thumb === 'banners') {
       return (
         <div className={`${defaultClasses} bg-purple-950/20 border-purple-500/35 text-purple-400 font-bold`}>
-          <span>BANNER</span><span className="text-[7px] text-slate-300 mt-0.5 font-bold">ASSET</span>
+          <span>BANNER</span><span className="text-[7px] text-[#111827] mt-0.5 font-bold">ASSET</span>
         </div>
       );
     }
     if (thumb === 'bestselling') {
       return (
-        <div className={`${defaultClasses} bg-amber-950/20 border-[#d4af37]/35 text-[#d4af37] font-black animate-pulse`}>
+        <div className={`${defaultClasses} bg-amber-950/20 border-[#2563EB]/35 text-[#2563EB] font-black animate-pulse`}>
           <span>BEST</span><span className="text-[7px] text-amber-500 font-extrabold mt-0.5">SELLER</span>
         </div>
       );
@@ -158,7 +158,7 @@ export default function BestSellingManager({ services, setServices }) {
       );
     }
     return (
-      <div className={`${defaultClasses} bg-slate-900 border-slate-800 text-slate-500`}>
+      <div className={`${defaultClasses} bg-[#F8FAFC] border-[#E2E8F0] text-[#64748B]`}>
         <span>SVC</span>
       </div>
     );
@@ -173,16 +173,16 @@ export default function BestSellingManager({ services, setServices }) {
   ];
 
   return (
-    <div className="space-y-8 text-slate-100 animate-fade-in">
+    <div className="space-y-8 text-[#111827] animate-fade-in">
       
       {/* Page Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-850 pb-5">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#E2E8F0] pb-5">
         <div>
-          <h1 className="text-xl md:text-2xl font-black uppercase tracking-tight text-gradient-gold flex items-center gap-2">
-            <Sparkles className="w-6 h-6 text-[#d4af37] animate-pulse" />
+          <h1 className="text-xl md:text-2xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#06B6D4] flex items-center gap-2">
+            <Sparkles className="w-6 h-6 text-[#2563EB] animate-pulse" />
             Best Selling Shelf
           </h1>
-          <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider mt-1.5">
+          <p className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider mt-1.5">
             Configure popular tools, high-demand licenses, and trending activation packages
           </p>
         </div>
@@ -191,19 +191,19 @@ export default function BestSellingManager({ services, setServices }) {
       {/* KPI Stats Row */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
         {/* Total Best Sellers */}
-        <div className="glass-card rounded-xl p-5 border-l-4 border-l-[#d4af37] shadow-md">
+        <div className="glass-card rounded-xl p-5 border-l-4 border-l-[primary] shadow-md">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-8 h-8 rounded-lg bg-[#d4af37]/10 flex items-center justify-center border border-[#d4af37]/20">
-              <Sparkles size={16} className="text-[#d4af37]" />
+            <div className="w-8 h-8 rounded-lg bg-[#2563EB]/10 flex items-center justify-center border border-[#2563EB]/20">
+              <Sparkles size={16} className="text-[#2563EB]" />
             </div>
-            <span className="text-[9px] font-extrabold text-slate-400 uppercase tracking-wider">
+            <span className="text-[9px] font-extrabold text-[#64748B] uppercase tracking-wider">
               Total Best Sellers
             </span>
           </div>
-          <span className="text-2xl font-black block tracking-tight text-slate-200">
+          <span className="text-2xl font-black block tracking-tight text-[#111827]">
             {totalBestSellers}
           </span>
-          <span className="text-[9px] text-slate-500 font-semibold mt-1 block">
+          <span className="text-[9px] text-[#64748B] font-semibold mt-1 block">
             Featured products on client homepage
           </span>
         </div>
@@ -214,11 +214,11 @@ export default function BestSellingManager({ services, setServices }) {
             <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20">
               <TrendingUp size={16} className="text-emerald-400" />
             </div>
-            <span className="text-[9px] font-extrabold text-slate-400 uppercase tracking-wider">
+            <span className="text-[9px] font-extrabold text-[#64748B] uppercase tracking-wider">
               Active Best Sellers
             </span>
           </div>
-          <span className="text-2xl font-black block tracking-tight text-slate-200">
+          <span className="text-2xl font-black block tracking-tight text-[#111827]">
             {activeBestSellers}
           </span>
           <span className="text-[9px] text-emerald-500 font-semibold mt-1 block">
@@ -232,14 +232,14 @@ export default function BestSellingManager({ services, setServices }) {
             <div className="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center border border-cyan-500/20">
               <IndianRupee size={16} className="text-cyan-400" />
             </div>
-            <span className="text-[9px] font-extrabold text-slate-400 uppercase tracking-wider">
+            <span className="text-[9px] font-extrabold text-[#64748B] uppercase tracking-wider">
               Average Price
             </span>
           </div>
-          <span className="text-2xl font-black block tracking-tight text-slate-200">
+          <span className="text-2xl font-black block tracking-tight text-[#111827]">
             ₹{avgPrice.toLocaleString('en-IN')}
           </span>
-          <span className="text-[9px] text-slate-500 font-semibold mt-1 block">
+          <span className="text-[9px] text-[#64748B] font-semibold mt-1 block">
             Based on current featured list
           </span>
         </div>
@@ -252,20 +252,20 @@ export default function BestSellingManager({ services, setServices }) {
         <div className="lg:col-span-2 space-y-6">
           
           {/* Header & Search */}
-          <div className="glass-card p-4 rounded-xl flex flex-col sm:flex-row gap-4 items-center justify-between border border-slate-850 shadow-md">
-            <h3 className="text-xs font-black text-slate-200 uppercase tracking-wider flex items-center gap-2">
-              <Sparkles size={14} className="text-[#d4af37]" />
+          <div className="glass-card p-4 rounded-xl flex flex-col sm:flex-row gap-4 items-center justify-between border border-[#E2E8F0] shadow-md">
+            <h3 className="text-xs font-black text-[#111827] uppercase tracking-wider flex items-center gap-2">
+              <Sparkles size={14} className="text-[#2563EB]" />
               Currently Featured Best Sellers ({filteredBestSellers.length})
             </h3>
             
             <div className="relative w-full sm:w-64">
-              <Search className="absolute left-3 top-2.5 w-3.5 h-3.5 text-slate-500" />
+              <Search className="absolute left-3 top-2.5 w-3.5 h-3.5 text-[#64748B]" />
               <input
                 type="text"
                 placeholder="Search best sellers..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-800 focus:border-[#d4af37]/70 text-[11px] font-semibold rounded-lg pl-9 pr-3 py-2 text-slate-200 focus:outline-none transition-all duration-200"
+                className="w-full bg-[#F8FAFC] border border-[#E2E8F0] focus:border-[#2563EB]/70 text-[11px] font-semibold rounded-lg pl-9 pr-3 py-2 text-[#111827] focus:outline-none transition-all duration-200"
               />
             </div>
           </div>
@@ -275,26 +275,26 @@ export default function BestSellingManager({ services, setServices }) {
             {filteredBestSellers.map((svc) => (
               <div 
                 key={svc.id}
-                className="glass-card rounded-2xl p-4 flex gap-4 border border-[#d4af37]/25 hover:border-[#d4af37]/60 transition-all group shadow-md bg-gradient-to-br from-[#d4af37]/2 to-transparent"
+                className="glass-card rounded-2xl p-4 flex gap-4 border border-[#2563EB]/25 hover:border-[#2563EB]/60 transition-all group shadow-md bg-gradient-to-br from-[primary]/2 to-transparent"
               >
                 {getServiceThumbnailPreview(svc.thumbType || 'default', svc.image)}
                 
                 <div className="flex-1 flex flex-col justify-between min-w-0">
                   <div>
                     <div className="flex items-start justify-between gap-1">
-                      <h4 className="text-xs font-black text-slate-200 group-hover:text-[#d4af37] transition-colors truncate" title={svc.title}>
+                      <h4 className="text-xs font-black text-[#111827] group-hover:text-[#2563EB] transition-colors truncate" title={svc.title}>
                         {svc.title}
                       </h4>
-                      <span className="shrink-0 bg-[#d4af37]/10 border border-[#d4af37]/20 text-[#d4af37] text-[8px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded leading-none flex items-center gap-0.5 animate-pulse">
+                      <span className="shrink-0 bg-[#2563EB]/10 border border-[#2563EB]/20 text-[#2563EB] text-[8px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded leading-none flex items-center gap-0.5 animate-pulse">
                         <Sparkles size={8} /> BEST
                       </span>
                     </div>
 
                     <div className="flex items-center gap-1.5 mt-2 flex-wrap">
-                      <span className="bg-slate-800 border border-slate-750 text-slate-400 text-[8px] font-extrabold uppercase px-1.5 py-0.5 rounded leading-none">
+                      <span className="bg-[#F8FAFC] border border-[#E2E8F0] text-[#64748B] text-[8px] font-extrabold uppercase px-1.5 py-0.5 rounded leading-none">
                         {svc.category}
                       </span>
-                      <span className="bg-slate-800/80 border border-slate-750 text-slate-400 text-[8px] font-bold uppercase px-1.5 py-0.5 rounded leading-none">
+                      <span className="bg-[#F8FAFC]/80 border border-[#E2E8F0] text-[#64748B] text-[8px] font-bold uppercase px-1.5 py-0.5 rounded leading-none">
                         {svc.type}
                       </span>
                       <span className={`text-[8px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded leading-none border ${
@@ -307,14 +307,14 @@ export default function BestSellingManager({ services, setServices }) {
                     </div>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-slate-900/60 flex items-center justify-between">
-                    <span className="text-xs font-black text-[#d4af37]">
+                  <div className="mt-4 pt-3 border-t border-[#E2E8F0]/60 flex items-center justify-between">
+                    <span className="text-xs font-black text-[#2563EB]">
                       ₹{(svc.priceINR || 0).toLocaleString('en-IN')}
                     </span>
 
                     <button
                       onClick={() => handleToggleBestSelling(svc, false)}
-                      className="px-2.5 py-1.5 bg-red-950/20 hover:bg-red-550 border border-red-900/35 hover:border-transparent text-red-400 hover:text-white text-[9px] font-black uppercase tracking-wider rounded-lg transition-all cursor-pointer flex items-center gap-1 shadow-sm"
+                      className="px-2.5 py-1.5 bg-red-950/20 hover:bg-red-550 border border-red-900/35 hover:border-transparent text-red-400 hover:text-[#111827] text-[9px] font-black uppercase tracking-wider rounded-lg transition-all cursor-pointer flex items-center gap-1 shadow-sm"
                       title="Remove from Best Sellers"
                     >
                       <Minus size={10} />
@@ -326,7 +326,7 @@ export default function BestSellingManager({ services, setServices }) {
             ))}
 
             {filteredBestSellers.length === 0 && (
-              <div className="col-span-2 text-center py-12 glass-card rounded-2xl text-slate-500 font-bold uppercase tracking-wider border border-slate-850">
+              <div className="col-span-2 text-center py-12 glass-card rounded-2xl text-[#64748B] font-bold uppercase tracking-wider border border-[#E2E8F0]">
                 No featured best selling items found.
               </div>
             )}
@@ -335,22 +335,22 @@ export default function BestSellingManager({ services, setServices }) {
 
         {/* Right Pane: Add Services to Best Selling (1 col) */}
         <div className="space-y-4">
-          <div className="glass-card p-5 rounded-2xl shadow-lg border border-slate-850 space-y-4">
-            <h3 className="text-xs font-black text-slate-200 uppercase tracking-wider border-b border-slate-900/80 pb-3 flex items-center gap-2">
-              <Plus size={15} className="text-[#d4af37]" />
+          <div className="glass-card p-5 rounded-2xl shadow-lg border border-[#E2E8F0] space-y-4">
+            <h3 className="text-xs font-black text-[#111827] uppercase tracking-wider border-b border-[#E2E8F0]/80 pb-3 flex items-center gap-2">
+              <Plus size={15} className="text-[#2563EB]" />
               Add More Services
             </h3>
 
             {/* Sub-Filters */}
-            <div className="flex gap-1 overflow-x-auto scrollbar-none pb-2 border-b border-slate-900/60">
+            <div className="flex gap-1 overflow-x-auto scrollbar-none pb-2 border-b border-[#E2E8F0]/60">
               {categories.map((cat) => (
                 <button
                   key={cat.id}
                   onClick={() => setActiveFilterTab(cat.id)}
                   className={`px-2.5 py-1 rounded-md text-[9px] font-black uppercase tracking-wider transition-all border whitespace-nowrap cursor-pointer ${
                     activeFilterTab === cat.id
-                      ? 'bg-[#d4af37] text-slate-950 border-transparent font-black shadow-sm'
-                      : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                      ? 'bg-[#2563EB] text-[#111827] border-transparent font-black shadow-sm'
+                      : 'bg-[#F8FAFC] border-[#E2E8F0] text-[#64748B] hover:text-[#111827] hover:border-[#E2E8F0]'
                   }`}
                 >
                   {cat.label.replace(' Service', '')}
@@ -363,24 +363,24 @@ export default function BestSellingManager({ services, setServices }) {
               {filteredOthers.map((svc) => (
                 <div 
                   key={svc.id}
-                  className="p-3 bg-slate-900/40 hover:bg-slate-900/70 border border-slate-850 hover:border-slate-750 rounded-xl transition-all flex items-center justify-between gap-3 group"
+                  className="p-3 bg-[#F8FAFC]/40 hover:bg-[#F8FAFC]/70 border border-[#E2E8F0] hover:border-[#E2E8F0] rounded-xl transition-all flex items-center justify-between gap-3 group"
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
                     {getServiceThumbnailPreview(svc.thumbType || 'default', svc.image)}
                     <div className="min-w-0">
-                      <span className="block text-[11px] font-bold text-slate-200 truncate group-hover:text-[#d4af37] transition-colors" title={svc.title}>
+                      <span className="block text-[11px] font-bold text-[#111827] truncate group-hover:text-[#2563EB] transition-colors" title={svc.title}>
                         {svc.title}
                       </span>
                       <div className="flex items-center gap-1.5 mt-1">
-                        <span className="text-[8px] font-semibold text-slate-500 uppercase">{svc.category}</span>
-                        <span className="text-[8px] font-bold text-[#d4af37]">₹{(svc.priceINR || 0).toLocaleString('en-IN')}</span>
+                        <span className="text-[8px] font-semibold text-[#64748B] uppercase">{svc.category}</span>
+                        <span className="text-[8px] font-bold text-[#2563EB]">₹{(svc.priceINR || 0).toLocaleString('en-IN')}</span>
                       </div>
                     </div>
                   </div>
 
                   <button
                     onClick={() => handleToggleBestSelling(svc, true)}
-                    className="p-1.5 bg-slate-900 hover:bg-[#d4af37] text-slate-400 hover:text-slate-950 border border-slate-800 hover:border-transparent rounded-lg transition-all cursor-pointer"
+                    className="p-1.5 bg-[#F8FAFC] hover:bg-[#2563EB] text-[#64748B] hover:text-[#111827] border border-[#E2E8F0] hover:border-transparent rounded-lg transition-all cursor-pointer"
                     title="Feature as Best Selling"
                   >
                     <Plus size={12} />
@@ -389,7 +389,7 @@ export default function BestSellingManager({ services, setServices }) {
               ))}
 
               {filteredOthers.length === 0 && (
-                <div className="text-center py-8 text-slate-500 font-bold uppercase tracking-wider text-[10px]">
+                <div className="text-center py-8 text-[#64748B] font-bold uppercase tracking-wider text-[10px]">
                   No other services available
                 </div>
               )}

@@ -6,31 +6,31 @@ const STYLE_PRESETS = [
   {
     label: 'Apple style (Gradient Pink/Red/Orange)',
     bg: 'bg-gradient-to-br from-red-500 via-pink-500 to-orange-500 border border-red-600/15',
-    text: 'text-white'
+    text: 'text-[#111827]'
   },
   {
     label: 'Hydra style (Dark Obsidian & Gold)',
-    bg: 'bg-gradient-to-br from-slate-900 via-slate-950 to-black border border-slate-800',
-    text: 'text-[#d4af37]'
+    bg: 'bg-gradient-to-br from-slate-900 via-slate-950 to-black border border-[#E2E8F0]',
+    text: 'text-[#2563EB]'
   },
   {
     label: 'Huawei style (Plain White & Slate Border)',
-    bg: 'bg-white border border-slate-200',
+    bg: 'bg-white border border-[#E2E8F0]',
     text: 'text-red-600'
   },
   {
     label: 'Falcons style (Indigo Glow & Cyan)',
-    bg: 'bg-gradient-to-br from-blue-900 to-indigo-950 border border-slate-800',
+    bg: 'bg-gradient-to-br from-blue-900 to-indigo-950 border border-[#E2E8F0]',
     text: 'text-cyan-400'
   },
   {
     label: 'iRemoval style (Teal Gradient & White/Gold)',
-    bg: 'bg-gradient-to-br from-teal-800 to-emerald-950 border border-slate-800',
-    text: 'text-white'
+    bg: 'bg-gradient-to-br from-teal-800 to-emerald-950 border border-[#E2E8F0]',
+    text: 'text-[#111827]'
   },
   {
     label: 'Nexus style (Solid Obsidian & Gold)',
-    bg: 'bg-black border border-slate-900',
+    bg: 'bg-black border border-[#E2E8F0]',
     text: 'text-yellow-500'
   },
   {
@@ -75,7 +75,7 @@ export default function ClientsManager() {
   const [clientSubtitle, setClientSubtitle] = useState('');
   const [selectedPresetIndex, setSelectedPresetIndex] = useState(0);
   const [clientBgColor, setClientBgColor] = useState('bg-gradient-to-br from-red-500 via-pink-500 to-orange-500 border border-red-600/15');
-  const [clientTextColor, setClientTextColor] = useState('text-white');
+  const [clientTextColor, setClientTextColor] = useState('text-[#111827]');
   const [clientImage, setClientImage] = useState('');
   const [imageFileName, setImageFileName] = useState('');
   const [errors, setErrors] = useState({});
@@ -143,7 +143,7 @@ export default function ClientsManager() {
     setClientSubtitle('');
     setSelectedPresetIndex(0);
     setClientBgColor('bg-gradient-to-br from-red-500 via-pink-500 to-orange-500 border border-red-600/15');
-    setClientTextColor('text-white');
+    setClientTextColor('text-[#111827]');
     setClientImage('');
     setImageFileName('');
     setErrors({});
@@ -205,7 +205,7 @@ export default function ClientsManager() {
   const currentBg = STYLE_PRESETS[selectedPresetIndex]?.bg;
 
   return (
-    <div className="space-y-8 text-slate-200 animate-fade-in">
+    <div className="space-y-8 text-[#111827] animate-fade-in">
 
       {/* Toast Notification */}
       {toast && (
@@ -228,19 +228,19 @@ export default function ClientsManager() {
       )}
 
       {/* Page Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#E2E8F0] pb-5">
         <div>
-          <h1 className="text-xl md:text-2xl font-black uppercase tracking-tight text-gradient-gold flex items-center gap-2">
-            <Handshake className="w-7 h-7 text-[#d4af37]" />
+          <h1 className="text-xl md:text-2xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#06B6D4] flex items-center gap-2">
+            <Handshake className="w-7 h-7 text-[#2563EB]" />
             Clients &amp; Resellers
           </h1>
-          <p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider mt-1.5">
+          <p className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider mt-1.5">
             Configure dynamic "WE ARE OFFICIAL SELLER" cards and brand logos shown on the B2B portal footer
           </p>
         </div>
         <button
           onClick={() => setShowModal(true)}
-          className="btn-gold px-4 py-2.5 flex items-center gap-1.5"
+          className="btn-primary px-4 py-2.5 flex items-center gap-1.5"
         >
           <Plus size={16} />
           <span>Add Official Seller Card</span>
@@ -249,25 +249,25 @@ export default function ClientsManager() {
 
       {/* Cards Grid */}
       {loading ? (
-        <div className="text-center py-12 text-slate-500 font-bold uppercase tracking-wider">
-          <span className="w-5 h-5 border-2 border-[#d4af37] border-t-transparent rounded-full animate-spin inline-block mr-3" />
+        <div className="text-center py-12 text-[#64748B] font-bold uppercase tracking-wider">
+          <span className="w-5 h-5 border-2 border-[#2563EB] border-t-transparent rounded-full animate-spin inline-block mr-3" />
           Loading dynamic client cards...
         </div>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
           {clients.map((client) => {
             const cardKey = client._id || client.id;
-            const cardBg = client.bgColor || 'bg-slate-900/40 border border-slate-800/50';
-            const textClass = client.textColor || 'text-slate-200';
+            const cardBg = client.bgColor || 'bg-[#F8FAFC]/40 border border-[#E2E8F0]/50';
+            const textClass = client.textColor || 'text-[#111827]';
 
             return (
               <div
                 key={cardKey}
-                className={`${cardBg} rounded-2xl p-5 hover:border-[#d4af37]/45 transition-all group shadow-md flex flex-col justify-between items-center text-center relative h-36 min-w-0 select-none`}
+                className={`${cardBg} rounded-2xl p-5 hover:border-[#2563EB]/45 transition-all group shadow-md flex flex-col justify-between items-center text-center relative h-36 min-w-0 select-none`}
               >
                 <button
                   onClick={() => handleDelete(client.id || client._id, client.name)}
-                  className="absolute top-3 right-3 p-1.5 bg-red-950/20 hover:bg-red-500 text-red-400 hover:text-white border border-red-500/20 hover:border-transparent rounded-lg transition-all cursor-pointer inline-flex items-center shadow-sm opacity-0 group-hover:opacity-100 focus:opacity-100 z-10"
+                  className="absolute top-3 right-3 p-1.5 bg-red-950/20 hover:bg-red-500 text-red-400 hover:text-[#111827] border border-red-500/20 hover:border-transparent rounded-lg transition-all cursor-pointer inline-flex items-center shadow-sm opacity-0 group-hover:opacity-100 focus:opacity-100 z-10"
                   title={`Remove ${client.name}`}
                 >
                   <Trash2 size={12} />
@@ -296,7 +296,7 @@ export default function ClientsManager() {
                   )}
                 </div>
 
-                <div className="w-full border-t border-slate-800/40 pt-2 flex justify-between items-center text-[8px] text-slate-500 uppercase font-black tracking-wider shrink-0 mt-2">
+                <div className="w-full border-t border-[#E2E8F0]/40 pt-2 flex justify-between items-center text-[8px] text-[#64748B] uppercase font-black tracking-wider shrink-0 mt-2">
                   <span>Type: {client.image ? 'Logo Image' : 'Styled Card'}</span>
                 </div>
               </div>
@@ -304,7 +304,7 @@ export default function ClientsManager() {
           })}
 
           {clients.length === 0 && (
-            <div className="col-span-full text-center py-16 text-slate-500 font-bold uppercase tracking-wider border border-dashed border-slate-800 rounded-2xl">
+            <div className="col-span-full text-center py-16 text-[#64748B] font-bold uppercase tracking-wider border border-dashed border-[#E2E8F0] rounded-2xl">
               No official seller cards configured. Click 'Add Official Seller Card' to begin.
             </div>
           )}
@@ -315,18 +315,18 @@ export default function ClientsManager() {
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md">
           <div
-            className="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full shadow-2xl flex flex-col"
+            className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl max-w-md w-full shadow-2xl flex flex-col"
             style={{ maxHeight: '92vh' }}
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 shrink-0">
-              <h2 className="text-xs font-black text-slate-200 uppercase tracking-wider flex items-center gap-2">
-                <Handshake className="w-4 h-4 text-[#d4af37]" />
+            <div className="flex items-center justify-between px-6 py-4 border-b border-[#E2E8F0] shrink-0">
+              <h2 className="text-xs font-black text-[#111827] uppercase tracking-wider flex items-center gap-2">
+                <Handshake className="w-4 h-4 text-[#2563EB]" />
                 Add Official Seller Card
               </h2>
               <button
                 onClick={closeModal}
-                className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
+                className="p-1.5 text-[#64748B] hover:text-[#111827] hover:bg-[#F8FAFC] rounded-lg transition-colors cursor-pointer"
               >
                 <X size={16} />
               </button>
@@ -337,7 +337,7 @@ export default function ClientsManager() {
 
               {/* Brand Name */}
               <div>
-                <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-1.5">
+                <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
                   Client / Reseller Brand Name <span className="text-red-400">*</span>
                 </label>
                 <input
@@ -359,8 +359,8 @@ export default function ClientsManager() {
 
               {/* Subtitle */}
               <div>
-                <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-1.5">
-                  Subtitle <span className="text-slate-600">(Optional)</span>
+                <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
+                  Subtitle <span className="text-[#64748B]">(Optional)</span>
                 </label>
                 <input
                   type="text"
@@ -373,13 +373,13 @@ export default function ClientsManager() {
 
               {/* Preset Style */}
               <div>
-                <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-1.5">
+                <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
                   Preset Visual Style
                 </label>
                 <select
                   value={selectedPresetIndex}
                   onChange={(e) => handlePresetChange(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 focus:border-[#d4af37]/70 text-xs font-semibold rounded-lg px-3 py-2.5 text-slate-200 focus:outline-none transition-all duration-200"
+                  className="w-full bg-[#F8FAFC] border border-[#E2E8F0] focus:border-[#2563EB]/70 text-xs font-semibold rounded-lg px-3 py-2.5 text-[#111827] focus:outline-none transition-all duration-200"
                 >
                   {STYLE_PRESETS.map((p, idx) => (
                     <option key={idx} value={idx}>{p.label}</option>
@@ -391,7 +391,7 @@ export default function ClientsManager() {
               {currentBg === 'custom' && (
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="text-[9px] text-slate-500 font-black uppercase tracking-wider block mb-1">
+                    <label className="text-[9px] text-[#64748B] font-black uppercase tracking-wider block mb-1">
                       Background Classes
                     </label>
                     <input
@@ -403,12 +403,12 @@ export default function ClientsManager() {
                     />
                   </div>
                   <div>
-                    <label className="text-[9px] text-slate-500 font-black uppercase tracking-wider block mb-1">
+                    <label className="text-[9px] text-[#64748B] font-black uppercase tracking-wider block mb-1">
                       Text Classes
                     </label>
                     <input
                       type="text"
-                      placeholder="e.g. text-white"
+                      placeholder="e.g. text-[#111827]"
                       value={clientTextColor}
                       onChange={(e) => setClientTextColor(e.target.value)}
                       className="input-dark"
@@ -419,8 +419,8 @@ export default function ClientsManager() {
 
               {/* Image Upload */}
               <div>
-                <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-1.5">
-                  Brand Logo Image <span className="text-slate-600">(Optional — overrides text layout)</span>
+                <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
+                  Brand Logo Image <span className="text-[#64748B]">(Optional — overrides text layout)</span>
                 </label>
                 <input
                   ref={fileInputRef}
@@ -432,7 +432,7 @@ export default function ClientsManager() {
                 />
                 <label
                   htmlFor="client-logo-upload"
-                  className="w-full px-4 py-3 bg-slate-950 hover:bg-[#d4af37]/10 border border-slate-800 hover:border-[#d4af37]/50 text-slate-400 hover:text-slate-200 font-bold uppercase tracking-wider text-[10px] rounded-lg flex items-center justify-center gap-2 cursor-pointer transition-all"
+                  className="w-full px-4 py-3 bg-[#F8FAFC] hover:bg-[#2563EB]/10 border border-[#E2E8F0] hover:border-[#2563EB]/50 text-[#64748B] hover:text-[#111827] font-bold uppercase tracking-wider text-[10px] rounded-lg flex items-center justify-center gap-2 cursor-pointer transition-all"
                 >
                   <Upload size={14} />
                   <span>{imageFileName ? imageFileName : 'Choose Brand Logo'}</span>
@@ -455,11 +455,11 @@ export default function ClientsManager() {
 
               {/* Live Preview */}
               {(clientImage || clientName) && (
-                <div className="flex flex-col gap-2 p-3 bg-slate-950/60 rounded-xl border border-slate-800">
-                  <span className="text-[9px] text-slate-500 uppercase font-black tracking-wider flex items-center gap-1.5">
+                <div className="flex flex-col gap-2 p-3 bg-[#F8FAFC]/60 rounded-xl border border-[#E2E8F0]">
+                  <span className="text-[9px] text-[#64748B] uppercase font-black tracking-wider flex items-center gap-1.5">
                     <ImageIcon size={10} /> Visual Live Preview
                   </span>
-                  <div className="w-full h-24 bg-slate-950 rounded-lg flex items-center justify-center p-3 border border-slate-900 overflow-hidden">
+                  <div className="w-full h-24 bg-[#F8FAFC] rounded-lg flex items-center justify-center p-3 border border-[#E2E8F0] overflow-hidden">
                     {clientImage ? (
                       <img
                         src={clientImage}
@@ -467,8 +467,8 @@ export default function ClientsManager() {
                         className="max-h-full max-w-full object-contain"
                       />
                     ) : (
-                      <div className={`${currentBg !== 'custom' ? clientBgColor : 'bg-slate-800'} rounded-xl p-3 flex flex-col justify-center items-center h-16 w-36 text-center select-none shadow-sm`}>
-                        <span className={`text-xs font-black tracking-tight leading-none ${currentBg !== 'custom' ? clientTextColor : 'text-white'} uppercase`}>
+                      <div className={`${currentBg !== 'custom' ? clientBgColor : 'bg-[#F8FAFC]'} rounded-xl p-3 flex flex-col justify-center items-center h-16 w-36 text-center select-none shadow-sm`}>
+                        <span className={`text-xs font-black tracking-tight leading-none ${currentBg !== 'custom' ? clientTextColor : 'text-[#111827]'} uppercase`}>
                           {clientName || 'Brand'}
                         </span>
                         {clientSubtitle && (
@@ -484,12 +484,12 @@ export default function ClientsManager() {
             </div>
 
             {/* Sticky Footer — always visible */}
-            <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-slate-800 bg-slate-900 rounded-b-2xl shrink-0">
+            <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-[#E2E8F0] bg-[#F8FAFC] rounded-b-2xl shrink-0">
               <button
                 type="button"
                 onClick={closeModal}
                 disabled={submitting}
-                className="px-4 py-2.5 bg-slate-950 border border-slate-800 hover:bg-slate-800 text-slate-400 hover:text-slate-200 text-xs font-bold uppercase tracking-wider rounded-lg cursor-pointer transition-all disabled:opacity-50"
+                className="px-4 py-2.5 bg-[#F8FAFC] border border-[#E2E8F0] hover:bg-[#F8FAFC] text-[#64748B] hover:text-[#111827] text-xs font-bold uppercase tracking-wider rounded-lg cursor-pointer transition-all disabled:opacity-50"
               >
                 Cancel
               </button>
@@ -497,11 +497,11 @@ export default function ClientsManager() {
                 type="button"
                 onClick={handleCreateCard}
                 disabled={submitting}
-                className="btn-gold px-5 py-2.5 shadow-gold-md disabled:opacity-50 disabled:pointer-events-none flex items-center gap-2 min-w-[110px] justify-center"
+                className="btn-primary px-5 py-2.5 shadow-blue-md disabled:opacity-50 disabled:pointer-events-none flex items-center gap-2 min-w-[110px] justify-center"
               >
                 {submitting ? (
                   <>
-                    <span className="w-3.5 h-3.5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin inline-block" />
+                    <span className="w-3.5 h-3.5 border-2 border-[#E2E8F0] border-t-transparent rounded-full animate-spin inline-block" />
                     Saving...
                   </>
                 ) : (

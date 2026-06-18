@@ -413,4 +413,60 @@ export async function deleteRemoteProduct(id) {
   return res.json();
 }
 
+// Pop Ad Management
+export async function getPopAdConfig() {
+  const configStr = localStorage.getItem('popAdConfig');
+  if (configStr) {
+    try {
+      return JSON.parse(configStr);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+  
+  // Default config
+  const defaultConfig = {
+    isActive: true,
+    badgeText: 'Important Notice',
+    title: 'Terms & Conditions',
+    description: `Important notice that requires your acknowledgment before using this website.
 
+All files and tools on GsmGiri are for educational purposes only.
+
+🔧 Device repair, firmware updates, FRP operations & software fixes
+📱 Personal devices or devices with authorized owner permission
+🧾 Owner must provide: device bill/box — if no box, customer ID proof + signature + passport photo required
+
+ ━━━━━━━━━━━━━━━━
+🚫 STRICTLY PROHIBITED
+━━━━━━━━━━━━━━━━
+❌ Blacklisted or lost/stolen devices — DO NOT process
+❌ Auth server operations — clean IMEI devices only
+❌ Any device without proper owner authorization & documentation
+Before proceeding, please verify the device status here: CEIR IMEI Verification.
+
+━━━━━━━━━━━━━━━━
+📋 TERMS & CONDITIONS
+━━━━━━━━━━━━━━━━
+✔️ Must be 18+ years old
+✔️ Must own the device or have owner's written permission
+✔️ Must comply with local laws and regulations
+✔️ Device bill/box OR valid ID proof + signature + passport photo required
+✔️ Only clean, authorized devices permitted — no blacklisted/lost devices
+✔️ All OTP & Credits TOOLs are NON-REFUNDABLE once used
+
+GsmGiri assumes no responsibility for any misuse, legal consequences, or device damage caused by the use of these files & tools. By using this site, you agree to these terms.`,
+    buttonText: 'I Agree & Continue',
+    imageUrl: ''
+  };
+  localStorage.setItem('popAdConfig', JSON.stringify(defaultConfig));
+  return defaultConfig;
+}
+
+export async function updatePopAdConfig(updates) {
+  const configStr = localStorage.getItem('popAdConfig');
+  const config = configStr ? JSON.parse(configStr) : {};
+  const newConfig = { ...config, ...updates };
+  localStorage.setItem('popAdConfig', JSON.stringify(newConfig));
+  return newConfig;
+}

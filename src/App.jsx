@@ -17,8 +17,9 @@ import PromoColumnsManager from './pages/PromoColumnsManager';
 import ClientsManager from './pages/ClientsManager';
 import ImeiServiceManager from './pages/ImeiServiceManager';
 import RemoteRentManager from './pages/RemoteRentManager';
+import PopAdManager from './pages/PopAdManager';
 import { verifyToken, logout as apiLogout, getWallet, getOrders, getServices, resetDatabase, getProfile } from './utils/api';
-import { Sun, Moon } from 'lucide-react';
+import { Sun, Moon, LogOut } from 'lucide-react';
 
 
 export default function App() {
@@ -111,8 +112,8 @@ export default function App() {
 
   if (loadingAuth) {
     return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center text-slate-500 font-sans text-xs uppercase tracking-widest font-black">
-        <span className="w-5 h-5 border-2 border-[#d4af37] border-t-transparent rounded-full animate-spin mr-3"></span>
+      <div className="min-h-screen bg-[#F8FAFC] flex items-center justify-center text-[#64748B] font-sans text-xs uppercase tracking-widest font-black">
+        <span className="w-5 h-5 border-2 border-[#2563EB] border-t-transparent rounded-full animate-spin mr-3"></span>
         Loading Administrator Console...
       </div>
     );
@@ -123,7 +124,7 @@ export default function App() {
   }
 
   return (
-    <div className="flex min-h-screen bg-slate-900 text-slate-200 font-sans">
+    <div className="flex h-screen overflow-hidden bg-[#F8FAFC] text-[#111827] font-sans">
 
       {/* Navigation Sidebar */}
       <Sidebar
@@ -139,29 +140,38 @@ export default function App() {
       <div className="flex-1 flex flex-col min-w-0">
 
         {/* Top Header */}
-        <header className="h-20 border-b border-slate-200 bg-white/85 backdrop-blur-md flex items-center justify-between px-6 md:px-8 shrink-0">
+        <header className="h-20 border-b border-[#475569] bg-[#1E293B] flex items-center justify-end md:justify-between px-4 pl-16 md:px-8 shrink-0 text-white">
           <div className="flex items-center gap-4">
-            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider hidden md:block">
+            <span className="text-[10px] text-[#64748B] font-bold uppercase tracking-wider hidden md:block">
               SYSTEM TIME: {new Date().toISOString().slice(0, 10)} (LIVE)
             </span>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             {/* Quick Profile Badge */}
             <button
               onClick={() => setActiveTab('profile')}
-              className="flex items-center gap-2.5 bg-slate-50 hover:bg-[#d4af37]/5 hover:border-[#d4af37]/35 border border-slate-200 px-3.5 py-1.5 rounded-xl transition-all cursor-pointer"
+              className="flex items-center gap-2.5 bg-[#334155] hover:bg-[#F8FAFC] hover:text-[#111827] border border-[#475569] px-3.5 py-1.5 rounded-xl transition-all cursor-pointer group"
             >
-              <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#d4af37] to-amber-500 flex items-center justify-center text-slate-950 font-black text-[9px]">
+              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#2563EB] to-[#06B6D4] flex items-center justify-center text-white font-black text-[10px]">
                 {profileInitials}
               </div>
-              <span className="text-xs font-bold text-slate-700 hidden md:block">{profile?.name || 'Admin'}</span>
+              <span className="text-xs font-bold text-white group-hover:text-[#111827] hidden md:block">{profile?.name || 'Admin'}</span>
+            </button>
+            
+            {/* Quick Logout Button */}
+            <button
+              onClick={handleLogout}
+              title="Log Out"
+              className="p-2 bg-[#334155] hover:bg-[#EF4444] border border-[#475569] hover:border-[#EF4444] text-[#64748B] hover:text-white rounded-xl cursor-pointer transition-all flex items-center justify-center"
+            >
+              <LogOut size={16} />
             </button>
           </div>
         </header>
 
         {/* Dynamic Route Content */}
-        <main className="flex-grow p-6 md:p-8 overflow-y-auto max-w-7xl w-full mx-auto">
+        <main className="flex-grow p-4 md:p-8 overflow-y-auto max-w-7xl w-full mx-auto">
           {activeTab === 'dashboard' && (
             <Dashboard
               orders={orders}
@@ -237,6 +247,10 @@ export default function App() {
             <UsersManager />
           )}
 
+          {activeTab === 'popad' && (
+            <PopAdManager />
+          )}
+
           {activeTab === 'clients' && (
             <ClientsManager />
           )}
@@ -246,8 +260,8 @@ export default function App() {
           )}
 
           {activeTab === 'settings' && (
-            <Settings 
-              onResetDatabase={handleResetDatabase} 
+            <Settings
+              onResetDatabase={handleResetDatabase}
             />
           )}
 

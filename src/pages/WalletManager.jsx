@@ -109,15 +109,15 @@ export default function WalletManager({ balance, setBalance, orders, setOrders }
   });
 
   return (
-    <div className="space-y-8 text-slate-100 animate-fade-in">
+    <div className="space-y-8 text-[#111827] animate-fade-in">
       
       {/* Title Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-900 pb-5">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#E2E8F0] pb-5">
         <div>
-          <h1 className="text-xl md:text-2xl font-black uppercase tracking-tight text-gradient-gold">
+          <h1 className="text-xl md:text-2xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#06B6D4]">
             Wallet & Deposit Control
           </h1>
-          <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider mt-1.5">
+          <p className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider mt-1.5">
             Review agent balances, audit account ledgers, and approve wire transfers
           </p>
         </div>
@@ -130,20 +130,20 @@ export default function WalletManager({ balance, setBalance, orders, setOrders }
         <div className="space-y-6">
           
           {/* Card Showing Agent Balance */}
-          <div className="glass-card rounded-xl p-5 border-l-4 border-l-[#d4af37] shadow-md">
-            <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest block">
+          <div className="glass-card rounded-xl p-5 border-l-4 border-l-[primary] shadow-md">
+            <span className="text-[9px] font-black text-[#64748B] uppercase tracking-widest block">
               Active Agent Credit Pool
             </span>
             
             <div className="flex items-center gap-3 mt-4">
-              <div className="w-12 h-12 rounded-xl bg-[#d4af37]/10 flex items-center justify-center border border-[#d4af37]/20 text-[#d4af37]">
+              <div className="w-12 h-12 rounded-xl bg-[#2563EB]/10 flex items-center justify-center border border-[#2563EB]/20 text-[#2563EB]">
                 <Wallet size={24} />
               </div>
               <div>
-                <span className="text-xl md:text-2xl font-black text-white tracking-tight">
+                <span className="text-xl md:text-2xl font-black text-[#111827] tracking-tight">
                   ₹{balance.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                 </span>
-                <span className="block text-[9px] text-slate-400 font-bold uppercase tracking-wider mt-1.5">
+                <span className="block text-[9px] text-[#64748B] font-bold uppercase tracking-wider mt-1.5">
                   Synced dynamically in server database
                 </span>
               </div>
@@ -151,9 +151,9 @@ export default function WalletManager({ balance, setBalance, orders, setOrders }
           </div>
 
           {/* Recharge form */}
-          <div className="glass-card p-6 rounded-2xl shadow-lg border border-slate-800 space-y-4">
-            <h2 className="text-xs font-black text-slate-200 uppercase tracking-wider border-b border-slate-900 pb-3 flex items-center gap-2">
-              <Plus size={16} className="text-[#d4af37]" />
+          <div className="glass-card p-6 rounded-2xl shadow-lg border border-[#E2E8F0] space-y-4">
+            <h2 className="text-xs font-black text-[#111827] uppercase tracking-wider border-b border-[#E2E8F0] pb-3 flex items-center gap-2">
+              <Plus size={16} className="text-[#2563EB]" />
               Adjust Balance
             </h2>
 
@@ -161,13 +161,13 @@ export default function WalletManager({ balance, setBalance, orders, setOrders }
               
               {/* Target Agent */}
               <div>
-                <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-1.5">
+                <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
                   Select B2B Agent
                 </label>
                 <select
                   value={agentName}
                   onChange={(e) => setAgentName(e.target.value)}
-                  className="w-full bg-slate-900 border border-slate-800 text-xs font-bold uppercase tracking-wider rounded-lg px-3 py-2.5 outline-none focus:border-[#d4af37]/70 transition-all cursor-pointer text-slate-300"
+                  className="w-full bg-[#F8FAFC] border border-[#E2E8F0] text-xs font-bold uppercase tracking-wider rounded-lg px-3 py-2.5 outline-none focus:border-[#2563EB]/70 transition-all cursor-pointer text-[#111827]"
                 >
                   <option value="GSMGiriAgent">GSMGiriAgent (Main Portal)</option>
                   <option value="SubAgent_India">SubAgent_India</option>
@@ -177,31 +177,31 @@ export default function WalletManager({ balance, setBalance, orders, setOrders }
 
               {/* Amount */}
               <div>
-                <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-1.5">
+                <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
                   Amount (Use negative sign for debit adjustments)
                 </label>
                 <div className="relative">
-                  <span className="absolute left-3.5 top-2.5 text-slate-500 font-bold text-sm">₹</span>
+                  <span className="absolute left-3.5 top-2.5 text-[#64748B] font-bold text-sm">₹</span>
                   <input
                     type="number"
                     required
                     placeholder="e.g. 5000 or -2000"
                     value={rechargeAmount}
                     onChange={(e) => setRechargeAmount(e.target.value)}
-                    className="w-full bg-slate-900 border border-slate-800 focus:border-[#d4af37]/70 text-xs font-bold rounded-lg pl-10 pr-4 py-2.5 text-slate-250 focus:outline-none transition-all duration-200"
+                    className="w-full bg-[#F8FAFC] border border-[#E2E8F0] focus:border-[#2563EB]/70 text-xs font-bold rounded-lg pl-10 pr-4 py-2.5 text-slate-250 focus:outline-none transition-all duration-200"
                   />
                 </div>
               </div>
 
               {/* Method select */}
               <div>
-                <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-1.5">
+                <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
                   Deposit Channel / Log Label
                 </label>
                 <select
                   value={rechargeMethod}
                   onChange={(e) => setRechargeMethod(e.target.value)}
-                  className="w-full bg-slate-900 border border-slate-800 text-xs font-bold uppercase tracking-wider rounded-lg px-3 py-2.5 outline-none focus:border-[#d4af37]/70 transition-all cursor-pointer text-slate-300"
+                  className="w-full bg-[#F8FAFC] border border-[#E2E8F0] text-xs font-bold uppercase tracking-wider rounded-lg px-3 py-2.5 outline-none focus:border-[#2563EB]/70 transition-all cursor-pointer text-[#111827]"
                 >
                   <option value="manual">Manual Adjustment</option>
                   <option value="bank">Bank Wire Transfer</option>
@@ -212,7 +212,7 @@ export default function WalletManager({ balance, setBalance, orders, setOrders }
 
               <button
                 type="submit"
-                className="w-full py-3 bg-[#d4af37] hover:bg-[#c5a059] text-slate-950 font-black rounded-xl text-center cursor-pointer transition-all border border-transparent shadow-gold-sm"
+                className="w-full py-3 bg-[#2563EB] hover:bg-blue-700 text-[#111827] font-black rounded-xl text-center cursor-pointer transition-all border border-transparent shadow-blue-sm"
               >
                 Apply Balance Adjustment
               </button>
@@ -229,7 +229,7 @@ export default function WalletManager({ balance, setBalance, orders, setOrders }
           {pendingDeposits.length > 0 && (
             <div className="glass-card p-6 rounded-2xl shadow-lg border border-amber-500/30 bg-amber-500/5 space-y-4">
               <h2 className="text-xs font-black text-amber-400 uppercase tracking-widest flex items-center gap-2">
-                <AlertCircle size={16} className="text-[#d4af37] animate-pulse" />
+                <AlertCircle size={16} className="text-[#2563EB] animate-pulse" />
                 Pending Deposit Requests (Needs Approval)
               </h2>
 
@@ -238,22 +238,22 @@ export default function WalletManager({ balance, setBalance, orders, setOrders }
                   <div key={dep.id} className="py-3.5 first:pt-0 last:pb-0 flex items-center justify-between text-xs gap-4">
                     <div>
                       <span className="block font-mono text-[10px] text-amber-400 font-bold">{dep.id}</span>
-                      <span className="block text-slate-200 font-extrabold mt-0.5">{dep.title}</span>
-                      <span className="block text-[10px] text-slate-400 font-bold mt-1">Agent: {dep.client} • {dep.date}</span>
+                      <span className="block text-[#111827] font-extrabold mt-0.5">{dep.title}</span>
+                      <span className="block text-[10px] text-[#64748B] font-bold mt-1">Agent: {dep.client} • {dep.date}</span>
                     </div>
 
                     <div className="flex items-center gap-4">
-                      <span className="font-black text-[#d4af37]">₹{dep.priceINR.toLocaleString('en-IN')}</span>
+                      <span className="font-black text-[#2563EB]">₹{dep.priceINR.toLocaleString('en-IN')}</span>
                       <div className="flex gap-2">
                         <button
                           onClick={() => handleRejectDeposit(dep)}
-                          className="bg-red-950/20 hover:bg-red-500 border border-red-500/20 hover:border-transparent text-red-400 hover:text-white px-2.5 py-1.5 rounded-lg text-[9px] font-black uppercase transition-all cursor-pointer shadow-sm"
+                          className="bg-red-950/20 hover:bg-red-500 border border-red-500/20 hover:border-transparent text-red-400 hover:text-[#111827] px-2.5 py-1.5 rounded-lg text-[9px] font-black uppercase transition-all cursor-pointer shadow-sm"
                         >
                           Deny
                         </button>
                         <button
                           onClick={() => handleApproveDeposit(dep)}
-                          className="bg-emerald-500/10 hover:bg-emerald-500 border border-emerald-500/20 hover:border-transparent text-emerald-400 hover:text-slate-950 px-2.5 py-1.5 rounded-lg text-[9px] font-black uppercase transition-all cursor-pointer flex items-center gap-0.5 shadow-sm"
+                          className="bg-emerald-500/10 hover:bg-emerald-500 border border-emerald-500/20 hover:border-transparent text-emerald-400 hover:text-[#111827] px-2.5 py-1.5 rounded-lg text-[9px] font-black uppercase transition-all cursor-pointer flex items-center gap-0.5 shadow-sm"
                         >
                           <Check size={11} /> Approve
                         </button>
@@ -266,15 +266,15 @@ export default function WalletManager({ balance, setBalance, orders, setOrders }
           )}
 
           {/* Statement ledger list */}
-          <div className="glass-card p-6 rounded-2xl shadow-lg border border-slate-800 space-y-6">
+          <div className="glass-card p-6 rounded-2xl shadow-lg border border-[#E2E8F0] space-y-6">
             
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
-                <h2 className="text-xs font-black text-slate-200 uppercase tracking-wider flex items-center gap-2">
-                  <History size={16} className="text-[#d4af37]" />
+                <h2 className="text-xs font-black text-[#111827] uppercase tracking-wider flex items-center gap-2">
+                  <History size={16} className="text-[#2563EB]" />
                   Agent Transaction Statement Ledger
                 </h2>
-                <p className="text-[9px] text-slate-400 uppercase font-semibold mt-1.5">
+                <p className="text-[9px] text-[#64748B] uppercase font-semibold mt-1.5">
                   Full statement of credits, deposits, and service purchases
                 </p>
               </div>
@@ -291,8 +291,8 @@ export default function WalletManager({ balance, setBalance, orders, setOrders }
                     onClick={() => setLedgerFilter(item.id)}
                     className={`px-3 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-wider border transition-all cursor-pointer shadow-sm ${
                       ledgerFilter === item.id
-                        ? 'bg-[#d4af37] text-slate-950 border-transparent shadow-gold-sm'
-                        : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                        ? 'bg-[#2563EB] text-[#111827] border-transparent shadow-blue-sm'
+                        : 'bg-[#F8FAFC] border-[#E2E8F0] text-[#64748B] hover:text-[#111827] hover:border-[#E2E8F0]'
                     }`}
                   >
                     {item.label}
@@ -310,26 +310,26 @@ export default function WalletManager({ balance, setBalance, orders, setOrders }
                 return (
                   <div 
                     key={item.id}
-                    className="p-3.5 bg-slate-900/60 border border-slate-850 rounded-xl flex items-center justify-between text-xs hover:border-[#d4af37]/30 transition-colors shadow-sm"
+                    className="p-3.5 bg-white border border-[#E2E8F0] rounded-xl flex items-center justify-between text-xs hover:border-[#2563EB]/30 transition-colors shadow-sm"
                   >
                     <div className="flex items-center gap-3">
                       <div className={`w-8 h-8 rounded-lg flex items-center justify-center border ${
                         isDeposit 
                           ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400' 
-                          : 'bg-[#d4af37]/10 border-[#d4af37]/20 text-[#d4af37]'
+                          : 'bg-[#2563EB]/10 border-[#2563EB]/20 text-[#2563EB]'
                       }`}>
                         {isDeposit ? <ArrowDownLeft size={16} /> : <ArrowUpRight size={16} />}
                       </div>
                       <div>
-                        <span className="font-extrabold text-slate-200 block">{item.title}</span>
-                        <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider mt-1 block">
+                        <span className="font-extrabold text-[#111827] block">{item.title}</span>
+                        <span className="text-[9px] text-[#64748B] font-bold uppercase tracking-wider mt-1 block">
                           Ref ID: <span className="font-mono text-slate-350 font-bold select-all">{item.id}</span> • {item.date} {item.time}
                         </span>
                       </div>
                     </div>
 
                     <div className="text-right">
-                      <span className={`block font-black text-sm ${isCompleted && isDeposit ? 'text-emerald-400' : 'text-slate-200'}`}>
+                      <span className={`block font-black text-sm ${isCompleted && isDeposit ? 'text-emerald-400' : 'text-[#111827]'}`}>
                         {isDeposit ? '+' : '-'} ₹{item.priceINR.toLocaleString('en-IN')}
                       </span>
                       <span className={`inline-block text-[8px] font-black uppercase tracking-wider mt-1.5 ${
@@ -346,7 +346,7 @@ export default function WalletManager({ balance, setBalance, orders, setOrders }
                 );
               })}
               {ledgerItems.length === 0 && (
-                <div className="text-center py-12 text-slate-500 font-bold uppercase text-[10px] tracking-wider">
+                <div className="text-center py-12 text-[#64748B] font-bold uppercase text-[10px] tracking-wider">
                   No statement logs found
                 </div>
               )}

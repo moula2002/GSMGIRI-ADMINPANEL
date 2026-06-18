@@ -186,7 +186,7 @@ export default function ServicesManager({ services, setServices }) {
         <img 
           src={image} 
           alt="Thumbnail" 
-          className="w-10 h-10 rounded-lg object-cover shrink-0 border border-slate-800 shadow-sm transition-transform group-hover:scale-105" 
+          className="w-10 h-10 rounded-lg object-cover shrink-0 border border-[#E2E8F0] shadow-sm transition-transform group-hover:scale-105" 
         />
       );
     }
@@ -215,15 +215,15 @@ export default function ServicesManager({ services, setServices }) {
     }
     if (thumb === 'nexapro') {
       return (
-        <div className={`${defaultClasses} bg-slate-900 border-slate-800 text-[#d4af37] font-bold`}>
-          <span>NEXA</span><span className="text-[8px] font-black text-slate-300 mt-0.5">PRO</span>
+        <div className={`${defaultClasses} bg-[#F8FAFC] border-[#E2E8F0] text-[#2563EB] font-bold`}>
+          <span>NEXA</span><span className="text-[8px] font-black text-[#111827] mt-0.5">PRO</span>
         </div>
       );
     }
     if (thumb === 'gsrealme') {
       return (
         <div className={`${defaultClasses} bg-yellow-950/20 border-yellow-500/35 text-yellow-400 font-bold`}>
-          <span>GS</span><span className="text-[7px] text-slate-300 mt-0.5">REALME</span>
+          <span>GS</span><span className="text-[7px] text-[#111827] mt-0.5">REALME</span>
         </div>
       );
     }
@@ -265,13 +265,13 @@ export default function ServicesManager({ services, setServices }) {
     if (thumb === 'banners') {
       return (
         <div className={`${defaultClasses} bg-purple-950/20 border-purple-500/35 text-purple-400 font-bold`}>
-          <span>BANNER</span><span className="text-[7px] text-slate-300 mt-0.5 font-bold">ASSET</span>
+          <span>BANNER</span><span className="text-[7px] text-[#111827] mt-0.5 font-bold">ASSET</span>
         </div>
       );
     }
     if (thumb === 'bestselling') {
       return (
-        <div className={`${defaultClasses} bg-amber-950/20 border-[#d4af37]/35 text-[#d4af37] font-black animate-pulse-gold`}>
+        <div className={`${defaultClasses} bg-amber-950/20 border-[#2563EB]/35 text-[#2563EB] font-black animate-pulse-gold`}>
           <span>BEST</span><span className="text-[7px] text-amber-500 font-extrabold mt-0.5">SELLER</span>
         </div>
       );
@@ -284,28 +284,28 @@ export default function ServicesManager({ services, setServices }) {
       );
     }
     return (
-      <div className={`${defaultClasses} bg-slate-900 border-slate-800 text-slate-500`}>
+      <div className={`${defaultClasses} bg-[#F8FAFC] border-[#E2E8F0] text-[#64748B]`}>
         <span>SVC</span>
       </div>
     );
   };
 
   return (
-    <div className="space-y-8 text-slate-100 animate-fade-in">
+    <div className="space-y-8 text-[#111827] animate-fade-in">
       
       {/* Page Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-900 pb-5">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#E2E8F0] pb-5">
         <div>
-          <h1 className="text-xl md:text-2xl font-black uppercase tracking-tight text-gradient-gold">
+          <h1 className="text-xl md:text-2xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#06B6D4]">
             Services Database
           </h1>
-          <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider mt-1.5">
+          <p className="text-[10px] text-[#64748B] uppercase font-bold tracking-wider mt-1.5">
             Create, edit, and delete tools, software licenses, or activation credits
           </p>
         </div>
         <button 
           onClick={handleAddNewClick}
-          className="btn-gold px-4 py-2.5 flex items-center gap-1.5"
+          className="btn-primary px-4 py-2.5 flex items-center gap-1.5"
         >
           <Plus size={16} />
           <span>Add New Service</span>
@@ -319,15 +319,15 @@ export default function ServicesManager({ services, setServices }) {
         <div className="lg:col-span-2 space-y-6">
           
           {/* Filters & Search */}
-          <div className="glass-card p-4 rounded-xl flex flex-col md:flex-row gap-4 items-center justify-between border border-slate-800 shadow-lg">
+          <div className="glass-card p-4 rounded-xl flex flex-col md:flex-row gap-4 items-center justify-between border border-[#E2E8F0] shadow-lg">
             <div className="relative w-full md:w-80">
-              <Search className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-500" />
+              <Search className="absolute left-3.5 top-3.5 w-4 h-4 text-[#64748B]" />
               <input
                 type="text"
                 placeholder="Search service title or type..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-800 focus:border-[#d4af37]/70 text-xs font-semibold rounded-lg pl-11 pr-4 py-3 text-slate-200 focus:outline-none transition-all duration-200 shadow-inner"
+                className="w-full bg-[#F8FAFC] border border-[#E2E8F0] focus:border-[#2563EB]/70 text-xs font-semibold rounded-lg pl-11 pr-4 py-3 text-[#111827] focus:outline-none transition-all duration-200 shadow-inner"
               />
             </div>
 
@@ -338,8 +338,8 @@ export default function ServicesManager({ services, setServices }) {
                   onClick={() => setActiveTab(cat.id)}
                   className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all border whitespace-nowrap cursor-pointer ${
                     activeTab === cat.id
-                      ? 'bg-[#d4af37] text-slate-950 border-transparent shadow-gold-sm'
-                      : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                      ? 'bg-[#2563EB] text-[#111827] border-transparent shadow-blue-sm'
+                      : 'bg-[#F8FAFC] border-[#E2E8F0] text-[#64748B] hover:text-[#111827] hover:border-[#E2E8F0]'
                   }`}
                 >
                   {cat.label}
@@ -353,7 +353,7 @@ export default function ServicesManager({ services, setServices }) {
             {filteredServices.map((svc) => (
               <div 
                 key={svc.id}
-                className="glass-card rounded-2xl p-4 flex gap-4 border border-slate-850 hover:border-[#d4af37]/45 transition-all group shadow-md"
+                className="glass-card rounded-2xl p-4 flex gap-4 border border-[#E2E8F0] hover:border-[#2563EB]/45 transition-all group shadow-md"
               >
                 {/* Thumbnail Preview */}
                 {getServiceThumbnailPreview(svc.thumbType, svc.image)}
@@ -361,14 +361,14 @@ export default function ServicesManager({ services, setServices }) {
                 {/* Details */}
                 <div className="flex-1 flex flex-col justify-between min-w-0">
                   <div>
-                    <h3 className="text-xs font-bold text-slate-200 group-hover:text-[#d4af37] transition-colors truncate" title={svc.title}>
+                    <h3 className="text-xs font-bold text-[#111827] group-hover:text-[#2563EB] transition-colors truncate" title={svc.title}>
                       {svc.title}
                     </h3>
                     <div className="flex items-center gap-1.5 mt-1.5 flex-wrap">
                       <span className="bg-orange-500/10 border border-orange-500/20 text-orange-400 text-[8px] font-black uppercase tracking-wider px-2 py-0.5 rounded leading-none">
                         {svc.processing}
                       </span>
-                      <span className="bg-slate-800/80 border border-slate-700/60 text-slate-400 text-[8px] font-bold uppercase tracking-wider px-2 py-0.5 rounded leading-none">
+                      <span className="bg-[#F8FAFC]/80 border border-[#E2E8F0]/60 text-[#64748B] text-[8px] font-bold uppercase tracking-wider px-2 py-0.5 rounded leading-none">
                         {svc.type}
                       </span>
                       <span className={`text-[8px] font-black uppercase tracking-wider px-2 py-0.5 rounded leading-none border ${
@@ -382,7 +382,7 @@ export default function ServicesManager({ services, setServices }) {
                         Qty: {svc.quantity || 1}
                       </span>
                       {svc.isBestSelling && (
-                        <span className="bg-amber-500/10 border border-amber-500/20 text-[#d4af37] text-[8px] font-black uppercase tracking-wider px-2 py-0.5 rounded leading-none">
+                        <span className="bg-amber-500/10 border border-amber-500/20 text-[#2563EB] text-[8px] font-black uppercase tracking-wider px-2 py-0.5 rounded leading-none">
                           Best Seller
                         </span>
                       )}
@@ -393,14 +393,14 @@ export default function ServicesManager({ services, setServices }) {
                       )}
                     </div>
                     {svc.desc && (
-                      <p className="text-[10px] text-slate-400 mt-2 line-clamp-2 leading-relaxed" title={svc.desc}>
+                      <p className="text-[10px] text-[#64748B] mt-2 line-clamp-2 leading-relaxed" title={svc.desc}>
                         {svc.desc}
                       </p>
                     )}
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-slate-900 flex items-center justify-between">
-                    <span className="text-xs font-black text-[#d4af37]">
+                  <div className="mt-4 pt-3 border-t border-[#E2E8F0] flex items-center justify-between">
+                    <span className="text-xs font-black text-[#2563EB]">
                       ₹{svc.priceINR.toLocaleString('en-IN')}
                     </span>
                     
@@ -408,14 +408,14 @@ export default function ServicesManager({ services, setServices }) {
                       <button
                         onClick={() => handleEditClick(svc)}
                         title="Edit Details"
-                        className="p-1.5 bg-slate-900 hover:bg-[#d4af37] text-slate-400 hover:text-slate-950 border border-slate-800 hover:border-transparent rounded transition-all cursor-pointer inline-flex items-center shadow-sm"
+                        className="p-1.5 bg-[#F8FAFC] hover:bg-[#2563EB] text-[#64748B] hover:text-[#111827] border border-[#E2E8F0] hover:border-transparent rounded transition-all cursor-pointer inline-flex items-center shadow-sm"
                       >
                         <Edit3 size={12} />
                       </button>
                       <button
                         onClick={() => handleDeleteClick(svc.id)}
                         title="Delete Product"
-                        className="p-1.5 bg-red-950/20 hover:bg-red-500 text-red-400 hover:text-white border border-red-500/20 hover:border-transparent rounded transition-all cursor-pointer inline-flex items-center shadow-sm"
+                        className="p-1.5 bg-red-950/20 hover:bg-red-500 text-red-400 hover:text-[#111827] border border-red-500/20 hover:border-transparent rounded transition-all cursor-pointer inline-flex items-center shadow-sm"
                       >
                         <Trash2 size={12} />
                       </button>
@@ -425,7 +425,7 @@ export default function ServicesManager({ services, setServices }) {
               </div>
             ))}
             {filteredServices.length === 0 && (
-              <div className="col-span-2 text-center py-12 glass-card rounded-2xl text-slate-500 font-bold uppercase tracking-wider shadow-sm">
+              <div className="col-span-2 text-center py-12 glass-card rounded-2xl text-[#64748B] font-bold uppercase tracking-wider shadow-sm">
                 No services match search parameters
               </div>
             )}
@@ -434,9 +434,9 @@ export default function ServicesManager({ services, setServices }) {
 
         {/* Right Side: Form (1 col) */}
         <div>
-          <div className="glass-card p-6 rounded-2xl shadow-lg border border-slate-800 space-y-4">
-            <h2 className="text-xs font-black text-slate-200 uppercase tracking-wider border-b border-slate-900 pb-3 flex items-center gap-2">
-              <Layers size={16} className="text-[#d4af37]" />
+          <div className="glass-card p-6 rounded-2xl shadow-lg border border-[#E2E8F0] space-y-4">
+            <h2 className="text-xs font-black text-[#111827] uppercase tracking-wider border-b border-[#E2E8F0] pb-3 flex items-center gap-2">
+              <Layers size={16} className="text-[#2563EB]" />
               {editId ? 'Modify Product' : 'Create Product'}
             </h2>
 
@@ -445,7 +445,7 @@ export default function ServicesManager({ services, setServices }) {
                 
                 {/* Product Title */}
                 <div>
-                  <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-1.5">
+                  <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
                     Service Product Title
                   </label>
                   <input
@@ -461,13 +461,13 @@ export default function ServicesManager({ services, setServices }) {
                 <div className="grid grid-cols-2 gap-3.5">
                   {/* Category select */}
                   <div>
-                    <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-1.5">
+                    <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
                       Category
                     </label>
                     <select
                       value={formCategory}
                       onChange={(e) => setFormCategory(e.target.value)}
-                      className="w-full bg-slate-900 border border-slate-800 text-xs font-bold uppercase tracking-wider rounded-lg px-3 py-2.5 outline-none focus:border-[#d4af37]/70 transition-all cursor-pointer text-slate-300"
+                      className="w-full bg-[#F8FAFC] border border-[#E2E8F0] text-xs font-bold uppercase tracking-wider rounded-lg px-3 py-2.5 outline-none focus:border-[#2563EB]/70 transition-all cursor-pointer text-[#111827]"
                     >
                       {categories.filter(c => c.id !== 'all').map(cat => (
                         <option key={cat.id} value={cat.id}>{cat.label}</option>
@@ -477,13 +477,13 @@ export default function ServicesManager({ services, setServices }) {
 
                   {/* Thumbnail Badge selection */}
                   <div>
-                    <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-1.5">
+                    <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
                       Badge Design
                     </label>
                     <select
                       value={formThumbType}
                       onChange={(e) => setFormThumbType(e.target.value)}
-                      className="w-full bg-slate-900 border border-slate-800 text-xs font-bold uppercase tracking-wider rounded-lg px-3 py-2.5 outline-none focus:border-[#d4af37]/70 transition-all cursor-pointer text-slate-300"
+                      className="w-full bg-[#F8FAFC] border border-[#E2E8F0] text-xs font-bold uppercase tracking-wider rounded-lg px-3 py-2.5 outline-none focus:border-[#2563EB]/70 transition-all cursor-pointer text-[#111827]"
                     >
                       {thumbTypes.map(tb => (
                         <option key={tb.value} value={tb.value}>{tb.label}</option>
@@ -494,7 +494,7 @@ export default function ServicesManager({ services, setServices }) {
 
                 {/* Custom Image Upload */}
                 <div>
-                  <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-1.5">
+                  <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
                     Custom Service Image (Overrides Badge Design)
                   </label>
                   <div className="flex gap-2">
@@ -503,7 +503,7 @@ export default function ServicesManager({ services, setServices }) {
                       readOnly
                       placeholder={formImage ? "Local Selected Image file (Loaded)" : "Select an image file to upload..."}
                       value={formImage ? (formImage.startsWith('data:') ? 'Local Selected Image file (Loaded)' : formImage) : ''}
-                      className="input-dark flex-1 cursor-default bg-slate-900 text-slate-400"
+                      className="input-dark flex-1 cursor-default bg-[#F8FAFC] text-[#64748B]"
                     />
                     <input 
                       type="file" 
@@ -525,7 +525,7 @@ export default function ServicesManager({ services, setServices }) {
                       type="button"
                       onClick={() => fileInputRef.current?.click()}
                       title="Choose local image"
-                      className="px-3 py-2.5 bg-slate-900 hover:bg-[#d4af37] border border-slate-800 hover:border-transparent text-slate-400 hover:text-slate-950 rounded-lg flex items-center justify-center cursor-pointer transition-all hover:scale-[1.02]"
+                      className="px-3 py-2.5 bg-[#F8FAFC] hover:bg-[#2563EB] border border-[#E2E8F0] hover:border-transparent text-[#64748B] hover:text-[#111827] rounded-lg flex items-center justify-center cursor-pointer transition-all hover:scale-[1.02]"
                     >
                       <Upload size={14} />
                     </button>
@@ -534,16 +534,16 @@ export default function ServicesManager({ services, setServices }) {
                         type="button"
                         onClick={() => setFormImage('')}
                         title="Remove Image"
-                        className="px-3 py-2.5 bg-red-950/40 hover:bg-red-500 border border-red-900/35 hover:border-transparent text-red-400 hover:text-white rounded-lg flex items-center justify-center cursor-pointer transition-all"
+                        className="px-3 py-2.5 bg-red-950/40 hover:bg-red-500 border border-red-900/35 hover:border-transparent text-red-400 hover:text-[#111827] rounded-lg flex items-center justify-center cursor-pointer transition-all"
                       >
                         <X size={14} />
                       </button>
                     )}
                   </div>
                   {formImage && (
-                    <div className="mt-2 flex items-center gap-3 p-2 bg-slate-950/30 rounded-lg border border-slate-800 w-max">
-                      <span className="text-[9px] text-slate-500 uppercase font-bold">Image Preview:</span>
-                      <img src={formImage} alt="Service Preview" className="w-10 h-10 object-cover rounded border border-slate-800" />
+                    <div className="mt-2 flex items-center gap-3 p-2 bg-[#F8FAFC]/30 rounded-lg border border-[#E2E8F0] w-max">
+                      <span className="text-[9px] text-[#64748B] uppercase font-bold">Image Preview:</span>
+                      <img src={formImage} alt="Service Preview" className="w-10 h-10 object-cover rounded border border-[#E2E8F0]" />
                     </div>
                   )}
                 </div>
@@ -551,7 +551,7 @@ export default function ServicesManager({ services, setServices }) {
                 <div className="grid grid-cols-2 gap-3.5">
                   {/* Subtitle / Type */}
                   <div>
-                    <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-1.5">
+                    <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
                       Subtype Label
                     </label>
                     <input
@@ -566,7 +566,7 @@ export default function ServicesManager({ services, setServices }) {
 
                   {/* Processing Time */}
                   <div>
-                    <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-1.5">
+                    <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
                       Processing Tag
                     </label>
                     <input
@@ -583,7 +583,7 @@ export default function ServicesManager({ services, setServices }) {
                 {/* Pricing & Quantity Grid */}
                 <div className="grid grid-cols-2 gap-3.5">
                   <div>
-                    <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-1.5">
+                    <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
                       Net Price (INR / ₹)
                     </label>
                     <input
@@ -596,7 +596,7 @@ export default function ServicesManager({ services, setServices }) {
                     />
                   </div>
                   <div>
-                    <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-1.5">
+                    <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
                       Quantity
                     </label>
                     <input
@@ -613,7 +613,7 @@ export default function ServicesManager({ services, setServices }) {
 
                 {/* Description */}
                 <div>
-                  <label className="text-[10px] text-slate-400 font-black uppercase tracking-wider block mb-1.5">
+                  <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
                     Detailed Product Description
                   </label>
                   <textarea
@@ -621,25 +621,25 @@ export default function ServicesManager({ services, setServices }) {
                     placeholder="Enter features, limitations, and requirements..."
                     value={formDesc}
                     onChange={(e) => setFormDesc(e.target.value)}
-                    className="w-full bg-slate-900 border border-slate-800 focus:border-[#d4af37]/70 text-xs font-semibold rounded-lg p-3 text-slate-250 focus:outline-none transition-all duration-200"
+                    className="w-full bg-[#F8FAFC] border border-[#E2E8F0] focus:border-[#2563EB]/70 text-xs font-semibold rounded-lg p-3 text-slate-250 focus:outline-none transition-all duration-200"
                   ></textarea>
                 </div>
 
                 {/* Status Toggle switch */}
-                <div className="flex items-center justify-between p-3.5 bg-slate-900 border border-slate-800 rounded-xl">
+                <div className="flex items-center justify-between p-3.5 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl">
                   <div>
-                    <span className="text-[10px] text-slate-400 font-black uppercase tracking-wider block">Service Status</span>
-                    <span className="text-[9px] text-slate-500">Enable or disable this B2B service</span>
+                    <span className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block">Service Status</span>
+                    <span className="text-[9px] text-[#64748B]">Enable or disable this B2B service</span>
                   </div>
                   <button
                     type="button"
                     onClick={() => setFormStatus(!formStatus)}
                     className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                      formStatus ? 'bg-[#d4af37]' : 'bg-slate-800'
+                      formStatus ? 'bg-[#2563EB]' : 'bg-[#F8FAFC]'
                     }`}
                   >
                     <span
-                      className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-slate-950 shadow ring-0 transition duration-200 ease-in-out ${
+                      className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-[#F8FAFC] shadow ring-0 transition duration-200 ease-in-out ${
                         formStatus ? 'translate-x-5' : 'translate-x-0'
                       }`}
                     />
@@ -647,20 +647,20 @@ export default function ServicesManager({ services, setServices }) {
                 </div>
 
                 {/* Best Selling Toggle switch */}
-                <div className="flex items-center justify-between p-3.5 bg-slate-900 border border-slate-800 rounded-xl">
+                <div className="flex items-center justify-between p-3.5 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl">
                   <div>
-                    <span className="text-[10px] text-slate-400 font-black uppercase tracking-wider block">Best Selling</span>
-                    <span className="text-[9px] text-slate-500">Feature this service in Best Selling list</span>
+                    <span className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block">Best Selling</span>
+                    <span className="text-[9px] text-[#64748B]">Feature this service in Best Selling list</span>
                   </div>
                   <button
                     type="button"
                     onClick={() => setFormBestSelling(!formBestSelling)}
                     className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                      formBestSelling ? 'bg-[#d4af37]' : 'bg-slate-800'
+                      formBestSelling ? 'bg-[#2563EB]' : 'bg-[#F8FAFC]'
                     }`}
                   >
                     <span
-                      className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-slate-950 shadow ring-0 transition duration-200 ease-in-out ${
+                      className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-[#F8FAFC] shadow ring-0 transition duration-200 ease-in-out ${
                         formBestSelling ? 'translate-x-5' : 'translate-x-0'
                       }`}
                     />
@@ -668,20 +668,20 @@ export default function ServicesManager({ services, setServices }) {
                 </div>
 
                 {/* Recently Added Toggle switch */}
-                <div className="flex items-center justify-between p-3.5 bg-slate-900 border border-slate-800 rounded-xl">
+                <div className="flex items-center justify-between p-3.5 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl">
                   <div>
-                    <span className="text-[10px] text-slate-400 font-black uppercase tracking-wider block">Recently Added</span>
-                    <span className="text-[9px] text-slate-500">Feature this service in Recently Added list</span>
+                    <span className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block">Recently Added</span>
+                    <span className="text-[9px] text-[#64748B]">Feature this service in Recently Added list</span>
                   </div>
                   <button
                     type="button"
                     onClick={() => setFormRecentlyAdded(!formRecentlyAdded)}
                     className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                      formRecentlyAdded ? 'bg-emerald-500' : 'bg-slate-800'
+                      formRecentlyAdded ? 'bg-emerald-500' : 'bg-[#F8FAFC]'
                     }`}
                   >
                     <span
-                      className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-slate-950 shadow ring-0 transition duration-200 ease-in-out ${
+                      className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-[#F8FAFC] shadow ring-0 transition duration-200 ease-in-out ${
                         formRecentlyAdded ? 'translate-x-5' : 'translate-x-0'
                       }`}
                     />
@@ -692,13 +692,13 @@ export default function ServicesManager({ services, setServices }) {
                   <button
                     type="button"
                     onClick={() => setShowForm(false)}
-                    className="w-full py-3 bg-slate-900 hover:bg-slate-800 text-slate-300 font-bold rounded-xl text-center cursor-pointer transition-all border border-slate-800"
+                    className="w-full py-3 bg-[#F8FAFC] hover:bg-[#F8FAFC] text-[#111827] font-bold rounded-xl text-center cursor-pointer transition-all border border-[#E2E8F0]"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="w-full py-3 bg-[#d4af37] hover:bg-[#c5a059] text-slate-950 font-black rounded-xl text-center cursor-pointer transition-all border border-transparent flex items-center justify-center gap-1 shadow-gold-sm"
+                    className="w-full py-3 bg-[#2563EB] hover:bg-blue-700 text-[#111827] font-black rounded-xl text-center cursor-pointer transition-all border border-transparent flex items-center justify-center gap-1 shadow-blue-sm"
                   >
                     <Save size={14} />
                     <span>Save Service</span>
@@ -707,10 +707,10 @@ export default function ServicesManager({ services, setServices }) {
 
               </form>
             ) : (
-              <div className="py-12 text-center text-slate-500 flex flex-col items-center gap-2">
-                <Info size={32} className="text-slate-600" />
-                <span className="font-black uppercase text-[10px] tracking-wider text-slate-400">Form Desk Standby</span>
-                <span className="text-[10px] leading-relaxed max-w-[200px] text-slate-500 font-medium">
+              <div className="py-12 text-center text-[#64748B] flex flex-col items-center gap-2">
+                <Info size={32} className="text-[#64748B]" />
+                <span className="font-black uppercase text-[10px] tracking-wider text-[#64748B]">Form Desk Standby</span>
+                <span className="text-[10px] leading-relaxed max-w-[200px] text-[#64748B] font-medium">
                   Click the "Add New Service" button at the top header or click the edit icon on any card to update its database details here.
                 </span>
               </div>

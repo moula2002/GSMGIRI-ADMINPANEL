@@ -17,13 +17,15 @@ import {
   Clock,
   Handshake,
   Hash,
-  Activity
+  Activity,
+  MonitorPlay
 } from 'lucide-react';
 
 export default function Sidebar({ activeTab, setActiveTab, sidebarOpen, setSidebarOpen, onLogout, profile }) {
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { id: 'banners', label: 'Banners', icon: ImageIcon },
+    { id: 'popad', label: 'Pop-Up Ad', icon: MonitorPlay },
     { id: 'services', label: 'Services', icon: Cpu },
     { id: 'imei', label: 'IMEI Service', icon: Hash },
     { id: 'remote', label: 'Remote / Tool Rent', icon: Activity },
@@ -51,10 +53,11 @@ export default function Sidebar({ activeTab, setActiveTab, sidebarOpen, setSideb
   return (
     <>
       {/* Mobile Toggle Button */}
-      <div className="lg:hidden fixed top-4 left-4 z-50">
+      <div className="lg:hidden fixed top-4 left-4 z-[60]">
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="p-2.5 bg-slate-900 border border-[#d4af37]/30 text-slate-100 rounded-lg hover:border-[#d4af37] transition-all focus:outline-none"
+          className="p-2.5 rounded-lg border border-[#2563EB]/30 text-white hover:border-[#2563EB] transition-all focus:outline-none shadow-lg shadow-black/20"
+          style={{ backgroundColor: '#0F172A' }}
         >
           {sidebarOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -64,26 +67,28 @@ export default function Sidebar({ activeTab, setActiveTab, sidebarOpen, setSideb
       {sidebarOpen && (
         <div
           onClick={() => setSidebarOpen(false)}
-          className="lg:hidden fixed inset-0 z-45 bg-black/70 backdrop-blur-md transition-opacity"
+          className="lg:hidden fixed inset-0 z-[50] bg-slate-900/60 backdrop-blur-sm transition-opacity"
         />
       )}
 
       {/* Sidebar Container */}
       <aside
-        className={`fixed inset-y-0 left-0 z-46 w-64 lg:static lg:flex flex-col bg-white border-r border-slate-200 transform transition-transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-0 lg:translate-x-0'
-          } ${!sidebarOpen && 'hidden lg:flex'}`}
+        className={`fixed inset-y-0 left-0 z-[70] w-72 lg:static lg:flex flex-col border-r border-[#1E293B] text-white transform transition-transform duration-300 ease-in-out shadow-2xl lg:shadow-none ${
+          sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+        }`}
+        style={{ backgroundColor: '#0F172A' }}
       >
         {/* Brand Header */}
-        <div className="h-20 flex items-center justify-between px-6 border-b border-slate-100">
+        <div className="h-20 flex items-center justify-between px-6 border-b border-[#1E293B]">
           <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden border border-[#d4af37]/30 shadow-sm">
+            <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden border border-[#2563EB]/30 shadow-sm">
               <img src="/logo.png" alt="GSM GIRI Logo" className="w-full h-full object-cover" />
             </div>
             <div>
-              <span className="text-base font-extrabold tracking-tight text-black block leading-none">
-                GSM<span className="text-[#d4af37]">GIRI</span>
+              <span className="text-base font-extrabold tracking-tight text-white block leading-none">
+                GSM<span className="text-[#06B6D4]">GIRI</span>
               </span>
-              <span className="text-[9px] uppercase tracking-wider text-black/70 font-bold block mt-1.5 leading-none">
+              <span className="text-[9px] uppercase tracking-wider text-[#64748B] font-bold block mt-1.5 leading-none">
                 B2B Admin Console
               </span>
             </div>
@@ -110,11 +115,11 @@ export default function Sidebar({ activeTab, setActiveTab, sidebarOpen, setSideb
                   setSidebarOpen(false);
                 }}
                 className={`w-full flex items-center gap-3.5 px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 border cursor-pointer ${isActive
-                  ? 'bg-[#d4af37]/10 text-[#d4af37] border-[#d4af37]/35 font-extrabold shadow-gold-sm'
-                  : 'bg-transparent text-black border-transparent hover:text-white hover:bg-black hover:border-black'
+                  ? 'bg-[#2563EB] text-white border-[#2563EB]/35 font-extrabold shadow-[0_4px_20px_-2px_rgba(37,99,235,0.30)]'
+                  : 'bg-transparent text-[#94A3B8] border-transparent hover:text-white hover:bg-[#1E293B] hover:border-[#334155]'
                   }`}
               >
-                <IconComponent size={16} className={isActive ? 'text-[#d4af37]' : 'text-black/80'} />
+                <IconComponent size={16} className={isActive ? 'text-white' : 'text-[#94A3B8] group-hover:text-white'} />
                 <span>{item.label}</span>
               </button>
             );
@@ -125,18 +130,18 @@ export default function Sidebar({ activeTab, setActiveTab, sidebarOpen, setSideb
         <div className="p-4 mx-4 mb-4">
           <div
             onClick={() => { setActiveTab('profile'); setSidebarOpen(false); }}
-            className={`flex items-center justify-between gap-3 bg-slate-50 border rounded-xl p-3.5 cursor-pointer transition-all hover:border-[#d4af37]/40 hover:bg-[#d4af37]/5 ${activeTab === 'profile' ? 'border-[#d4af37]/40 bg-[#d4af37]/5' : 'border-slate-100'
+            className={`flex items-center justify-between gap-3 bg-[#1E293B] border rounded-xl p-3.5 cursor-pointer transition-all hover:border-[#2563EB]/40 hover:bg-slate-700 ${activeTab === 'profile' ? 'border-[#2563EB]/40 bg-slate-700' : 'border-[#1E293B]'
               }`}
             title="Go to Admin Profile"
           >
             <div className="flex items-center gap-3 min-w-0">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#d4af37] to-amber-500 flex items-center justify-center text-slate-950 font-bold text-sm shadow-sm shrink-0">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-sm shadow-sm shrink-0">
                 {initials}
               </div>
               <div className="min-w-0">
-                <span className="text-xs font-bold text-black block leading-none truncate">{displayName}</span>
-                <span className="text-[9px] text-[#22c55e] font-semibold flex items-center gap-1 mt-1.5 leading-none">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e] inline-block animate-pulse"></span>
+                <span className="text-xs font-bold text-white block leading-none truncate">{displayName}</span>
+                <span className="text-[9px] text-[#10B981] font-semibold flex items-center gap-1 mt-1.5 leading-none">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] inline-block animate-pulse"></span>
                   Online
                 </span>
               </div>
@@ -144,7 +149,7 @@ export default function Sidebar({ activeTab, setActiveTab, sidebarOpen, setSideb
             <button
               onClick={(e) => { e.stopPropagation(); onLogout(); }}
               title="Log Out Session"
-              className="p-2 bg-white hover:bg-red-50 border border-slate-200 hover:border-red-500/50 text-slate-500 hover:text-red-500 rounded-lg cursor-pointer transition-all shrink-0"
+              className="p-2 bg-slate-800 hover:bg-[#EF4444]/20 border border-slate-700 hover:border-[#EF4444]/50 text-[#64748B] hover:text-[#EF4444] rounded-lg cursor-pointer transition-all shrink-0"
             >
               <LogOut size={14} />
             </button>
@@ -152,7 +157,7 @@ export default function Sidebar({ activeTab, setActiveTab, sidebarOpen, setSideb
         </div>
 
         {/* Footer info */}
-        <div className="px-6 pb-5 border-t border-slate-100 pt-4 text-[10px] text-black/80 font-semibold uppercase tracking-wider text-center">
+        <div className="px-6 pb-5 border-t border-[#1E293B] pt-4 text-[10px] text-slate-500 font-semibold uppercase tracking-wider text-center">
           <span>v2.2.0 • Pro Control</span>
         </div>
       </aside>
