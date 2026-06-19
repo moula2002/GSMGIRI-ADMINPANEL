@@ -8,7 +8,6 @@ import {
   X,
   CheckCircle,
   XCircle,
-  Wallet,
   Mail,
   Building2,
   UserCheck,
@@ -29,7 +28,7 @@ export default function UsersManager() {
   const [formEmail, setFormEmail]       = useState('');
   const [formPassword, setFormPassword] = useState('');
   const [formCompany, setFormCompany]   = useState('');
-  const [formBalance, setFormBalance]   = useState(0);
+
   const [formStatus, setFormStatus]     = useState('Active');
 
   useEffect(() => { loadUsers(); }, []);
@@ -49,7 +48,7 @@ export default function UsersManager() {
   const openAddModal = () => {
     setEditUser(null);
     setFormUsername(''); setFormEmail(''); setFormPassword('');
-    setFormCompany(''); setFormBalance(0); setFormStatus('Active');
+    setFormCompany(''); setFormStatus('Active');
     setShowModal(true);
   };
 
@@ -59,7 +58,7 @@ export default function UsersManager() {
     setFormEmail(user.email || '');
     setFormPassword('');
     setFormCompany(user.company || '');
-    setFormBalance(user.balance || 0);
+
     setFormStatus(user.status || 'Active');
     setShowModal(true);
   };
@@ -70,7 +69,6 @@ export default function UsersManager() {
       username: formUsername,
       email: formEmail,
       company: formCompany,
-      balance: Number(formBalance),
       status: formStatus,
       ...(formPassword ? { password: formPassword } : {})
     };
@@ -118,7 +116,7 @@ export default function UsersManager() {
     return matchSearch && matchStatus;
   });
 
-  const totalBalance = users.reduce((s, u) => s + (u.balance || 0), 0);
+
   const activeCount = users.filter(u => (u.status || 'Active') === 'Active').length;
 
   return (
@@ -158,15 +156,6 @@ export default function UsersManager() {
             <span className="text-[10px] font-extrabold text-[#64748B] uppercase tracking-wider">Active Users</span>
           </div>
           <span className="text-2xl font-black text-[#111827]">{activeCount}</span>
-        </div>
-        <div className="glass-card rounded-xl p-4 border-l-4 border-l-amber-500 shadow-sm">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
-              <Wallet size={15} className="text-amber-600" />
-            </div>
-            <span className="text-[10px] font-extrabold text-[#64748B] uppercase tracking-wider">Total Balances</span>
-          </div>
-          <span className="text-2xl font-black text-[#111827]">₹{totalBalance.toLocaleString('en-IN')}</span>
         </div>
       </div>
 
@@ -218,7 +207,6 @@ export default function UsersManager() {
                   <th className="pb-3 pl-1">Agent / Username</th>
                   <th className="pb-3">Company</th>
                   <th className="pb-3">Email</th>
-                  <th className="pb-3">Wallet Balance</th>
                   <th className="pb-3">Joined</th>
                   <th className="pb-3 text-center">Status</th>
                   <th className="pb-3 text-right">Actions</th>
@@ -249,9 +237,6 @@ export default function UsersManager() {
                         <Mail size={10} className="text-[#64748B] shrink-0" />
                         {user.email}
                       </span>
-                    </td>
-                    <td className="py-4 font-black text-[#2563EB]">
-                      ₹{(user.balance || 0).toLocaleString('en-IN')}
                     </td>
                     <td className="py-4 text-[10px] text-[#64748B] font-semibold">
                       {user.createdAt ? new Date(user.createdAt).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) : '—'}
@@ -365,15 +350,7 @@ export default function UsersManager() {
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="text-[10px] font-black text-[#64748B] uppercase tracking-wider block mb-1.5">Wallet Balance (₹)</label>
-                  <input
-                    type="number" min="0"
-                    value={formBalance} onChange={e => setFormBalance(e.target.value)}
-                    className="w-full bg-[#F8FAFC] border border-[#E2E8F0] focus:border-[#2563EB]/70 text-xs font-semibold rounded-lg px-3.5 py-2.5 text-[#111827] focus:outline-none transition-all"
-                  />
-                </div>
+              <div className="grid grid-cols-1 gap-3">
                 <div>
                   <label className="text-[10px] font-black text-[#64748B] uppercase tracking-wider block mb-1.5">Account Status</label>
                   <select

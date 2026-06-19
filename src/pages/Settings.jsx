@@ -19,7 +19,7 @@ export default function Settings({ onResetDatabase }) {
     const loadSettings = async () => {
       try {
         const settings = await getSettings();
-        setTickerMessage(settings.ticker || "📢 All B2B Rent Tools / License Activations / Credits Pack Available. Instant Wallet Funding via Cards & Crypto is active. Contact B2B WhatsApp +91 824-700-5409!");
+        setTickerMessage(settings.ticker || "📢 All B2B Rent Tools / License Activations / Credits Pack Available. Contact B2B WhatsApp +91 824-700-5409!");
         setExchangeRate(settings.rate || "83");
         setSupportWhatsapp(settings.whatsapp || "+91 824-700-5409");
       } catch (err) {
@@ -45,10 +45,10 @@ export default function Settings({ onResetDatabase }) {
 
 
   const handleResetClick = async () => {
-    if (window.confirm("WARNING: This will reset all services, orders, and wallet balance to initial seeds. All custom data will be cleared. Proceed?")) {
+    if (window.confirm("WARNING: This will reset all services and orders to initial seeds. All custom data will be cleared. Proceed?")) {
       try {
         await onResetDatabase();
-        setTickerMessage("📢 All B2B Rent Tools / License Activations / Credits Pack Available. Instant Wallet Funding via Cards & Crypto is active. Contact B2B WhatsApp +91 824-700-5409!");
+        setTickerMessage("📢 All B2B Rent Tools / License Activations / Credits Pack Available. Contact B2B WhatsApp +91 824-700-5409!");
         setExchangeRate("83");
         setSupportWhatsapp("+91 824-700-5409");
       } catch (err) {

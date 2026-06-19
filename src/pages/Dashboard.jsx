@@ -9,7 +9,7 @@ import {
   Settings
 } from 'lucide-react';
 
-export default function Dashboard({ orders, balance, setActiveTab, setEditingOrder }) {
+export default function Dashboard({ orders, setActiveTab, setEditingOrder }) {
   // Calculations
   const totalOrders = orders.length;
 
@@ -19,8 +19,6 @@ export default function Dashboard({ orders, balance, setActiveTab, setEditingOrd
   const pendingOrders = orders.filter(o => o.status === 'Pending');
   const pendingCount = pendingOrders.length;
 
-  const walletDeposits = orders.filter(o => o.type === 'Wallet Deposit');
-  const totalDeposits = walletDeposits.reduce((sum, o) => sum + (Number(o.priceINR) || 0), 0);
 
   // Format currency helper
   const formatINR = (val) => {
@@ -96,25 +94,9 @@ export default function Dashboard({ orders, balance, setActiveTab, setEditingOrd
             All time order records
           </span>
         </div>
+      </div>
 
-        {/* Current Agent Balance */}
-        <div className="bg-white rounded-xl p-5 border border-[#E2E8F0] shadow-md">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-r from-[#2563EB] to-[#06B6D4] flex items-center justify-center text-white shadow-sm">
-              <DollarSign size={17} />
-            </div>
-            <span className="text-[10px] font-extrabold text-[#64748B] uppercase tracking-wider">
-              Wallet Balance
-            </span>
-          </div>
-          <span className="text-2xl font-black block tracking-tight text-[#111827]">
-            {formatINR(balance)}
-          </span>
-          <span className="text-[10px] text-[#64748B] font-semibold mt-1.5 block">
-            Available agent credit pool
-          </span>
-        </div>
-      </div>      {/* Main Stats Sections: Quick Actions & Activity */}
+      {/* Main Stats Sections: Quick Actions & Activity */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
         {/* Order Stats Summary (2 columns wide) */}
@@ -168,16 +150,7 @@ export default function Dashboard({ orders, balance, setActiveTab, setEditingOrd
             Quick Actions
           </h3>
           <div className="space-y-2">
-            <button
-              onClick={() => setActiveTab('wallet')}
-              className="w-full flex items-center justify-between px-4 py-3 bg-white hover:bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#2563EB]/30 rounded-xl text-left transition-all duration-200 group cursor-pointer"
-            >
-              <div className="flex items-center gap-3">
-                <DollarSign size={15} className="text-[#2563EB]" />
-                <span className="text-xs font-bold text-[#111827] transition-colors">Manage Deposits</span>
-              </div>
-              <ArrowRight size={13} className="text-[#64748B] group-hover:text-[#2563EB] transition-all group-hover:translate-x-1" />
-            </button>
+
 
             <button
               onClick={() => setActiveTab('inquiries')}

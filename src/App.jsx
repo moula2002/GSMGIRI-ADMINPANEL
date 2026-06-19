@@ -3,7 +3,7 @@ import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
 import ServicesManager from './pages/ServicesManager';
 import OrdersManager from './pages/OrdersManager';
-import WalletManager from './pages/WalletManager';
+
 import InquiriesManager from './pages/InquiriesManager';
 import BannersManager from './pages/BannersManager';
 import CategoriesManager from './pages/CategoriesManager';
@@ -18,7 +18,7 @@ import ClientsManager from './pages/ClientsManager';
 import ImeiServiceManager from './pages/ImeiServiceManager';
 import RemoteRentManager from './pages/RemoteRentManager';
 import PopAdManager from './pages/PopAdManager';
-import { verifyToken, logout as apiLogout, getWallet, getOrders, getServices, resetDatabase, getProfile } from './utils/api';
+import { verifyToken, logout as apiLogout, getOrders, getServices, resetDatabase, getProfile } from './utils/api';
 import { Sun, Moon, LogOut } from 'lucide-react';
 
 
@@ -35,7 +35,7 @@ export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [editingOrder, setEditingOrder] = useState(null);
 
-  const [balance, setBalance] = useState(0);
+
   const [orders, setOrders] = useState([]);
   const [services, setServices] = useState([]);
   const [profile, setProfile] = useState({ name: 'Root Admin', role: 'Super Administrator' });
@@ -55,8 +55,7 @@ export default function App() {
     if (isLoggedIn) {
       const loadData = async () => {
         try {
-          const walletData = await getWallet();
-          setBalance(walletData.balance);
+
 
           const ordersData = await getOrders();
           setOrders(ordersData);
@@ -87,8 +86,7 @@ export default function App() {
   const handleResetDatabase = async () => {
     try {
       await resetDatabase();
-      const walletData = await getWallet();
-      setBalance(walletData.balance);
+
 
       const ordersData = await getOrders();
       setOrders(ordersData);
@@ -175,7 +173,6 @@ export default function App() {
           {activeTab === 'dashboard' && (
             <Dashboard
               orders={orders}
-              balance={balance}
               setActiveTab={setActiveTab}
               setEditingOrder={setEditingOrder}
             />
@@ -226,14 +223,7 @@ export default function App() {
             />
           )}
 
-          {activeTab === 'wallet' && (
-            <WalletManager
-              balance={balance}
-              setBalance={setBalance}
-              orders={orders}
-              setOrders={setOrders}
-            />
-          )}
+
 
           {activeTab === 'banners' && (
             <BannersManager />

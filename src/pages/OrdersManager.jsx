@@ -372,7 +372,6 @@ export default function OrdersManager({ orders, setOrders, editingOrder, setEdit
                 <div className="text-right">
                   <span className="block text-[9px] text-[#64748B] font-bold uppercase tracking-wider">Payment Channel:</span>
                   <span className="font-bold text-[#111827] block mt-1">{selectedInvoice.type}</span>
-                  <span className="text-[#64748B] block mt-0.5">Wallet Deduct</span>
                 </div>
               </div>
 

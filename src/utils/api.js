@@ -110,22 +110,7 @@ export async function deleteOrder(id) {
   return res.json();
 }
 
-// Wallet
-export async function getWallet() {
-  const res = await fetch(`${API_BASE}/wallet`, { headers: getHeaders() });
-  if (!res.ok) throw new Error('Failed to fetch wallet info');
-  return res.json();
-}
 
-export async function adjustWallet(amount) {
-  const res = await fetch(`${API_BASE}/wallet/adjust`, {
-    method: 'POST',
-    headers: getHeaders(),
-    body: JSON.stringify({ amount })
-  });
-  if (!res.ok) throw new Error('Failed to adjust wallet balance');
-  return res.json();
-}
 
 // Settings
 export async function getSettings() {
