@@ -17,8 +17,12 @@ import {
   Activity,
   MonitorPlay
 } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-export default function Sidebar({ activeTab, setActiveTab, sidebarOpen, setSidebarOpen, onLogout, profile }) {
+export default function Sidebar({ sidebarOpen, setSidebarOpen, onLogout, profile }) {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const activeTab = location.pathname.substring(1) || 'dashboard';
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { id: 'banners', label: 'Banners', icon: ImageIcon },
@@ -105,7 +109,7 @@ export default function Sidebar({ activeTab, setActiveTab, sidebarOpen, setSideb
               <button
                 key={item.id}
                 onClick={() => {
-                  setActiveTab(item.id);
+                  navigate(`/${item.id}`);
                   setSidebarOpen(false);
                 }}
                 className={`w-full flex items-center gap-3.5 px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 border cursor-pointer ${isActive
@@ -123,7 +127,7 @@ export default function Sidebar({ activeTab, setActiveTab, sidebarOpen, setSideb
         {/* Admin Credentials Panel */}
         <div className="p-4 mx-4 mb-4">
           <div
-            onClick={() => { setActiveTab('profile'); setSidebarOpen(false); }}
+            onClick={() => { navigate('/profile'); setSidebarOpen(false); }}
             className={`flex items-center justify-between gap-3 bg-[#1E293B] border rounded-xl p-3.5 cursor-pointer transition-all hover:border-[#2563EB]/40 hover:bg-slate-700 ${activeTab === 'profile' ? 'border-[#2563EB]/40 bg-slate-700' : 'border-[#1E293B]'
               }`}
             title="Go to Admin Profile"

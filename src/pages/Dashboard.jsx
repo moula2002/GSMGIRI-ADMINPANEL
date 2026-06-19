@@ -9,7 +9,10 @@ import {
   Settings
 } from 'lucide-react';
 
-export default function Dashboard({ orders, setActiveTab, setEditingOrder }) {
+import { useNavigate } from 'react-router-dom';
+
+export default function Dashboard({ orders, setEditingOrder }) {
+  const navigate = useNavigate();
   // Calculations
   const totalOrders = orders.length;
 
@@ -152,19 +155,10 @@ export default function Dashboard({ orders, setActiveTab, setEditingOrder }) {
           <div className="space-y-2">
 
 
-            <button
-              onClick={() => setActiveTab('inquiries')}
-              className="w-full flex items-center justify-between px-4 py-3 bg-white hover:bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#2563EB]/30 rounded-xl text-left transition-all duration-200 group cursor-pointer"
-            >
-              <div className="flex items-center gap-3">
-                <Clock size={15} className="text-amber-500" />
-                <span className="text-xs font-bold text-[#111827] transition-colors">Support Tickets</span>
-              </div>
-              <ArrowRight size={13} className="text-[#64748B] group-hover:text-[#2563EB] transition-all group-hover:translate-x-1" />
-            </button>
+
 
             <button
-              onClick={() => setActiveTab('services')}
+              onClick={() => navigate('/services')}
               className="w-full flex items-center justify-between px-4 py-3 bg-white hover:bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#2563EB]/30 rounded-xl text-left transition-all duration-200 group cursor-pointer"
             >
               <div className="flex items-center gap-3">
@@ -184,7 +178,7 @@ export default function Dashboard({ orders, setActiveTab, setEditingOrder }) {
             Recent Orders
           </h3>
           <button
-            onClick={() => setActiveTab('orders')}
+            onClick={() => navigate('/orders')}
             className="text-[10px] text-[#2563EB] hover:text-white hover:bg-[#2563EB] border border-[#E2E8F0] hover:border-transparent px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer"
           >
             View All
@@ -236,7 +230,7 @@ export default function Dashboard({ orders, setActiveTab, setEditingOrder }) {
                     <button
                       onClick={() => {
                         setEditingOrder(ord);
-                        setActiveTab('orders');
+                        navigate('/orders');
                       }}
                       className="text-[10px] bg-white hover:bg-[#2563EB] text-[#2563EB] hover:text-white border border-[#E2E8F0] hover:border-transparent px-3 py-1.5 rounded font-extrabold transition-all uppercase cursor-pointer"
                     >

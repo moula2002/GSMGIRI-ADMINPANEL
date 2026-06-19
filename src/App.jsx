@@ -18,12 +18,12 @@ import RemoteRentManager from './pages/RemoteRentManager';
 import PopAdManager from './pages/PopAdManager';
 import { verifyToken, logout as apiLogout, getOrders, getServices, resetDatabase, getProfile } from './utils/api';
 import { Sun, Moon, LogOut } from 'lucide-react';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loadingAuth, setLoadingAuth] = useState(true);
-  const [activeTab, setActiveTab] = useState('dashboard');
   const [theme, setTheme] = useState('light');
 
   useEffect(() => {
@@ -37,6 +37,7 @@ export default function App() {
   const [orders, setOrders] = useState([]);
   const [services, setServices] = useState([]);
   const [profile, setProfile] = useState({ name: 'Root Admin', role: 'Super Administrator' });
+  const navigate = useNavigate();
 
   // Auth check on mount
   useEffect(() => {
@@ -124,8 +125,6 @@ export default function App() {
 
       {/* Navigation Sidebar */}
       <Sidebar
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
         sidebarOpen={sidebarOpen}
         setSidebarOpen={setSidebarOpen}
         onLogout={handleLogout}
@@ -146,7 +145,7 @@ export default function App() {
           <div className="flex items-center gap-3">
             {/* Quick Profile Badge */}
             <button
-              onClick={() => setActiveTab('profile')}
+              onClick={() => navigate('/profile')}
               className="flex items-center gap-2.5 bg-[#334155] hover:bg-[#F8FAFC] hover:text-[#111827] border border-[#475569] px-3.5 py-1.5 rounded-xl transition-all cursor-pointer group"
             >
               <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#2563EB] to-[#06B6D4] flex items-center justify-center text-white font-black text-[10px]">
@@ -168,89 +167,69 @@ export default function App() {
 
         {/* Dynamic Route Content */}
         <main className="flex-grow p-4 md:p-8 overflow-y-auto max-w-7xl w-full mx-auto">
-          {activeTab === 'dashboard' && (
-            <Dashboard
-              orders={orders}
-              setActiveTab={setActiveTab}
-              setEditingOrder={setEditingOrder}
-            />
-          )}
+          <Routes>
+            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+            
+            <Route path="/dashboard" element={
+              <Dashboard
+                orders={orders}
+                setEditingOrder={setEditingOrder}
+              />
+            } />
 
-          {activeTab === 'imei' && (
-            <ImeiServiceManager />
-          )}
+            <Route path="/imei" element={<ImeiServiceManager />} />
+            <Route path="/remote" element={<RemoteRentManager />} />
 
-          {activeTab === 'remote' && (
-            <RemoteRentManager />
-          )}
+            <Route path="/services" element={
+              <ServicesManager
+                services={services}
+                setServices={setServices}
+              />
+            } />
 
-          {activeTab === 'services' && (
-            <ServicesManager
-              services={services}
-              setServices={setServices}
-            />
-          )}
+            <Route path="/bestselling" element={
+              <BestSellingManager
+                services={services}
+                setServices={setServices}
+              />
+            } />
 
-          {activeTab === 'bestselling' && (
-            <BestSellingManager
-              services={services}
-              setServices={setServices}
-            />
-          )}
+            <Route path="/recentlyadded" element={
+              <RecentlyAddedManager
+                services={services}
+                setServices={setServices}
+              />
+            } />
 
-          {activeTab === 'recentlyadded' && (
-            <RecentlyAddedManager
-              services={services}
-              setServices={setServices}
-            />
-          )}
+            <Route path="/promocolumns" element={
+              <PromoColumnsManager
+                services={services}
+                setServices={setServices}
+              />
+            } />
 
-          {activeTab === 'promocolumns' && (
-            <PromoColumnsManager
-              services={services}
-              setServices={setServices}
-            />
-          )}
+            <Route path="/orders" element={
+              <OrdersManager
+                orders={orders}
+                setOrders={setOrders}
+                editingOrder={editingOrder}
+                setEditingOrder={setEditingOrder}
+              />
+            } />
 
-          {activeTab === 'orders' && (
-            <OrdersManager
-              orders={orders}
-              setOrders={setOrders}
-              editingOrder={editingOrder}
-              setEditingOrder={setEditingOrder}
-            />
-          )}
+            <Route path="/banners" element={<BannersManager />} />
+            <Route path="/categories" element={<CategoriesManager />} />
+            <Route path="/users" element={<UsersManager />} />
+            <Route path="/popad" element={<PopAdManager />} />
+            <Route path="/clients" element={<ClientsManager />} />
 
-
-
-          {activeTab === 'banners' && (
-            <BannersManager />
-          )}
-
-          {activeTab === 'categories' && (
-            <CategoriesManager />
-          )}
-
-          {activeTab === 'users' && (
-            <UsersManager />
-          )}
-
-          {activeTab === 'popad' && (
-            <PopAdManager />
-          )}
-
-          {activeTab === 'clients' && (
-            <ClientsManager />
-          )}
-
-
-
-          {activeTab === 'profile' && (
-            <Profile
-              profile={profile}
-              setProfile={setProfile}
-            />
-          )}
+            <Route path="/profile" element={
+              <Profile
+                profile={profile}
+                setProfile={setProfile}
+              />
+            } />
+          </Routes>
         </main>
 
       </div>
