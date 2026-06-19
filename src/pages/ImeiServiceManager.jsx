@@ -13,6 +13,8 @@ export default function ImeiServiceManager() {
   
   const [formName, setFormName] = useState('');
   const [formPrice, setFormPrice] = useState(0);
+  const [formDuration, setFormDuration] = useState('');
+  const [formQuantity, setFormQuantity] = useState(1);
   const [formDesc, setFormDesc] = useState('');
   const [formStatus, setFormStatus] = useState(true);
   const [formImage, setFormImage] = useState('');
@@ -38,6 +40,8 @@ export default function ImeiServiceManager() {
     setEditId(prod.id);
     setFormName(prod.name);
     setFormPrice(prod.price);
+    setFormDuration(prod.duration || '');
+    setFormQuantity(prod.quantity || 1);
     setFormDesc(prod.description || '');
     setFormStatus(prod.status !== 'Inactive');
     setFormImage(prod.image || '');
@@ -48,6 +52,8 @@ export default function ImeiServiceManager() {
     setEditId(null);
     setFormName('');
     setFormPrice(0);
+    setFormDuration('');
+    setFormQuantity(1);
     setFormDesc('');
     setFormStatus(true);
     setFormImage('');
@@ -60,6 +66,8 @@ export default function ImeiServiceManager() {
     const payload = {
       name: formName,
       price: Number(formPrice),
+      duration: formDuration,
+      quantity: Number(formQuantity),
       description: formDesc,
       status: formStatus ? 'Active' : 'Inactive',
       image: formImage
@@ -176,6 +184,16 @@ export default function ImeiServiceManager() {
                         {svc.description}
                       </p>
                     )}
+                    {svc.duration && (
+                      <p className="text-[10px] text-[#2563EB] font-bold mt-1">
+                        ⏱ {svc.duration} {svc.quantity !== undefined && `| Qty: ${svc.quantity}`}
+                      </p>
+                    )}
+                    {!svc.duration && svc.quantity !== undefined && (
+                      <p className="text-[10px] text-[#2563EB] font-bold mt-1">
+                        Qty: {svc.quantity}
+                      </p>
+                    )}
                   </div>
 
                   <div className="mt-4 pt-3 border-t border-[#E2E8F0] flex items-center justify-between">
@@ -246,6 +264,30 @@ export default function ImeiServiceManager() {
                       className="input-dark"
                     />
                   </div>
+                  <div>
+                    <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
+                      Quantity
+                    </label>
+                    <input
+                      type="number" required
+                      value={formQuantity}
+                      onChange={(e) => setFormQuantity(e.target.value)}
+                      className="input-dark"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
+                    Duration
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 1-24 Hours"
+                    value={formDuration}
+                    onChange={(e) => setFormDuration(e.target.value)}
+                    className="input-dark w-full"
+                  />
                 </div>
 
                 <div>

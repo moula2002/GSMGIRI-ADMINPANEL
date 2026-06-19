@@ -15,6 +15,7 @@ export default function RemoteRentManager() {
   const [formCategory, setFormCategory] = useState('');
   const [formRentalPrice, setFormRentalPrice] = useState(0);
   const [formDuration, setFormDuration] = useState('');
+  const [formQuantity, setFormQuantity] = useState(1);
   const [formDesc, setFormDesc] = useState('');
   const [formStatus, setFormStatus] = useState(true);
   const [formImage, setFormImage] = useState('');
@@ -42,6 +43,7 @@ export default function RemoteRentManager() {
     setFormCategory(prod.category || '');
     setFormRentalPrice(prod.rentalPrice);
     setFormDuration(prod.duration || '');
+    setFormQuantity(prod.quantity || 1);
     setFormDesc(prod.description || '');
     setFormStatus(prod.status !== 'Inactive');
     setFormImage(prod.image || '');
@@ -54,6 +56,7 @@ export default function RemoteRentManager() {
     setFormCategory('');
     setFormRentalPrice(0);
     setFormDuration('');
+    setFormQuantity(1);
     setFormDesc('');
     setFormStatus(true);
     setFormImage('');
@@ -68,6 +71,7 @@ export default function RemoteRentManager() {
       category: formCategory,
       rentalPrice: Number(formRentalPrice),
       duration: formDuration,
+      quantity: Number(formQuantity),
       description: formDesc,
       status: formStatus ? 'Active' : 'Inactive',
       image: formImage
@@ -171,6 +175,11 @@ export default function RemoteRentManager() {
                       <span className="bg-[#F8FAFC]/80 border border-[#E2E8F0]/60 text-[#64748B] text-[8px] font-bold uppercase tracking-wider px-2 py-0.5 rounded leading-none">
                         {svc.duration || '24 Hours'}
                       </span>
+                      {svc.quantity !== undefined && (
+                        <span className="bg-[#F8FAFC]/80 border border-[#E2E8F0]/60 text-[#64748B] text-[8px] font-bold uppercase tracking-wider px-2 py-0.5 rounded leading-none">
+                          Qty: {svc.quantity}
+                        </span>
+                      )}
                       <span className="bg-[#F8FAFC]/80 border border-[#E2E8F0]/60 text-[#64748B] text-[8px] font-bold uppercase tracking-wider px-2 py-0.5 rounded leading-none">
                         {svc.category || 'Tool Rent'}
                       </span>
@@ -266,6 +275,20 @@ export default function RemoteRentManager() {
                       type="number" required
                       value={formRentalPrice}
                       onChange={(e) => setFormRentalPrice(e.target.value)}
+                      className="input-dark"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3.5">
+                  <div>
+                    <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
+                      Quantity
+                    </label>
+                    <input
+                      type="number" required
+                      value={formQuantity}
+                      onChange={(e) => setFormQuantity(e.target.value)}
                       className="input-dark"
                     />
                   </div>
