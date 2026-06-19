@@ -4,11 +4,9 @@ import Dashboard from './pages/Dashboard';
 import ServicesManager from './pages/ServicesManager';
 import OrdersManager from './pages/OrdersManager';
 
-import InquiriesManager from './pages/InquiriesManager';
 import BannersManager from './pages/BannersManager';
 import CategoriesManager from './pages/CategoriesManager';
 import UsersManager from './pages/UsersManager';
-import Settings from './pages/Settings';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import BestSellingManager from './pages/BestSellingManager';
@@ -245,15 +243,7 @@ export default function App() {
             <ClientsManager />
           )}
 
-          {activeTab === 'inquiries' && (
-            <InquiriesManager />
-          )}
 
-          {activeTab === 'settings' && (
-            <Settings
-              onResetDatabase={handleResetDatabase}
-            />
-          )}
 
           {activeTab === 'profile' && (
             <Profile

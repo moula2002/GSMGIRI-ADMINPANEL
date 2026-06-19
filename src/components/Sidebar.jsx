@@ -2,14 +2,12 @@ import {
   LayoutDashboard,
   ShoppingBag,
   Cpu,
-  Settings,
   Menu,
   X,
   Globe,
   LogOut,
   User,
   Users,
-  MessageSquare,
   Layers,
   Image as ImageIcon,
   Sparkles,
@@ -35,8 +33,6 @@ export default function Sidebar({ activeTab, setActiveTab, sidebarOpen, setSideb
     { id: 'clients', label: 'Clients', icon: Handshake },
     { id: 'users', label: 'Users', icon: Users },
     { id: 'orders', label: 'Orders Control', icon: ShoppingBag },
-    { id: 'inquiries', label: 'Support Tickets', icon: MessageSquare },
-    { id: 'settings', label: 'System Settings', icon: Settings },
     { id: 'profile', label: 'Admin Profile', icon: User },
   ];
 
