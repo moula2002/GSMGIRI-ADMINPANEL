@@ -12,7 +12,6 @@ export default function ImeiServiceManager() {
   const [editId, setEditId] = useState(null);
   
   const [formName, setFormName] = useState('');
-  const [formCategory, setFormCategory] = useState('');
   const [formPrice, setFormPrice] = useState(0);
   const [formDesc, setFormDesc] = useState('');
   const [formStatus, setFormStatus] = useState(true);
@@ -38,7 +37,6 @@ export default function ImeiServiceManager() {
   const handleEditClick = (prod) => {
     setEditId(prod.id);
     setFormName(prod.name);
-    setFormCategory(prod.category || '');
     setFormPrice(prod.price);
     setFormDesc(prod.description || '');
     setFormStatus(prod.status !== 'Inactive');
@@ -49,7 +47,6 @@ export default function ImeiServiceManager() {
   const handleAddNewClick = () => {
     setEditId(null);
     setFormName('');
-    setFormCategory('');
     setFormPrice(0);
     setFormDesc('');
     setFormStatus(true);
@@ -62,7 +59,6 @@ export default function ImeiServiceManager() {
 
     const payload = {
       name: formName,
-      category: formCategory,
       price: Number(formPrice),
       description: formDesc,
       status: formStatus ? 'Active' : 'Inactive',
@@ -165,7 +161,7 @@ export default function ImeiServiceManager() {
                     </h3>
                     <div className="flex items-center gap-1.5 mt-1.5 flex-wrap">
                       <span className="bg-[#F8FAFC]/80 border border-[#E2E8F0]/60 text-[#64748B] text-[8px] font-bold uppercase tracking-wider px-2 py-0.5 rounded leading-none">
-                        {svc.category || 'General'}
+                        General
                       </span>
                       <span className={`text-[8px] font-black uppercase tracking-wider px-2 py-0.5 rounded leading-none border ${
                         svc.status === 'Inactive'
@@ -239,18 +235,6 @@ export default function ImeiServiceManager() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-3.5">
-                  <div>
-                    <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
-                      Category
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="e.g. Apple, Samsung"
-                      value={formCategory}
-                      onChange={(e) => setFormCategory(e.target.value)}
-                      className="input-dark"
-                    />
-                  </div>
                   <div>
                     <label className="text-[10px] text-[#64748B] font-black uppercase tracking-wider block mb-1.5">
                       Price (INR)
